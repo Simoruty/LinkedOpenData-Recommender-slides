@@ -6,7 +6,7 @@
 \usepackage[utf8x]{inputenc}
 
 
-\title[]{Linked Open Data per la realizzazione di un Content-based Recommender System}
+\title[LOD CB-RS]{Linked Open Data per un Content-based Recommender System}
 \institute{ \textbf{Accesso intelligente alle informazioni ed \\ elaborazione del linguaggio naturale\\}
 ~ \\
 \begin{small}
@@ -35,13 +35,210 @@ Corso di Laurea in Informatica Magistrale
 
 \begin{document}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
 \maketitle
 \end{frame}
 
-\section{Obiettivi}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Classificatore}
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Obiettivi}
+\begin{frame}
+\frametitle{Obiettivi}
+\begin{itemize}
+\item Realizzazione di un content-based recommender system
+\item Basato sulla Linked Open Data Cloud
+\item Utilizzando il formalismo RDF
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Content-based Recommender System}
+Il sistema stabilisce a priori la distanza trai film al fine di raccomandare i più simili alle preferenze dell'utente 
+
+\begin{figure}
+\includegraphics[width=.8\textwidth]{figure/cbrs.jpg}
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Linked Open Data}
+Il più grande \emph{Cloud} al mondo di:
+\begin{itemize}
+\item dataset semantici
+\item fortemente interconnessi
+\item descritti attraverso RDF
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Linked Open Data}
+\includegraphics[width=.95\textwidth]{figure/lodcloud}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Resource Description Framework}
+Strumento base proposto da \emph{W3C} per la codifica, lo scambio e il riutilizzo di metadati strutturati.
+
+L'RDF Data Model si basa su tre principi chiave:
+\begin{enumerate}
+\item Qualunque cosa può essere identificata da un (URI)
+\item utilizzare il linguaggio meno espressivo per definire qualunque cosa
+\item Qualunque cosa può dire qualunque cosa su qualunque cosa
+\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Progetto}
+
+\subsection{Sorgente dati}
+
+\begin{frame}
+\frametitle{DBPedia}
+Fulcro della LODC
+Trasformazione in RDF di Wikipedia
+\end{frame}
+
+\begin{frame}
+\frametitle{Proprietà estratte}
+Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
+\begin{itemize}
+\item director
+\item subject
+\item starring
+\item productor
+\item writer
+\item cinematography
+\item music
+\item %TODO
+\item 
+\item 
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Realizzazione}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Grafo delle Risorse}
+Attraverso query SPARQL sono state estratte tutte le triple che avevano proprietà nota e un film come soggetto
+È stato generato il grafo relle risorse
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Grafo dei Film}
+Tutte le risorse non film
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Fattori}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Distanze}
+Sono state applicate 4 distanze su grafo:
+
+\begin{itemize}
+\item Direct
+\item Combinated
+\item Direct Weighted 
+\item Combinated Weighted
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Rappresentazione del profilo}
+Il profilo è stato rappresentato in 2 modi:
+
+\begin{itemize}
+\item[Simple] Insieme di film positivi per l'utente
+\item[Weighted] Ogni film influisce, positivamente o negativamente, alle raccomandazioni, secondo il voto ricevuto
+\end{itemize}
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Output}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Raccomandazioni}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Sperimentazione}
+\subsection{Dataset}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{MovieLens}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Protocollo Sperimentale}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Protocollo Sperimentale}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Metriche}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Risultati}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Risultati}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Conclusioni e sviluppi futuri}
+\begin{frame}
+\frametitle{Conclusioni e sviluppi futuri}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{frame}
 \frametitle{TEPaC}
 TEPaC
