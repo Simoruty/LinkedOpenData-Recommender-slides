@@ -74,6 +74,8 @@ Il sistema stabilisce a priori la distanza trai film al fine di raccomandare i p
 \begin{frame}
 \frametitle{Linked Open Data Cloud}
 
+%\includegraphics[width=.95\textwidth]{figure/LoDLogo.png}
+
 Collezione (\textbf{Cloud}) di dataset:
 \begin{itemize}
 \item descritti attraverso RDF
@@ -81,6 +83,8 @@ Collezione (\textbf{Cloud}) di dataset:
 \item fruibili liberamente e gratuitamente (\textbf{Open})
 \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Linked Open Data Cloud}
@@ -103,13 +107,12 @@ L'RDF Data Model si basa su tre principi chiave:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{frame}
 \frametitle{Esempio - Resource Description Framework}
 Considerando la frase:\\~\\
-\emph{Tarantino is the director of the Django Unchained.} \\~\\
-L'affermazione può essere suddivisa come : \\~\\
+\begin{center} \emph{Tarantino is the director of the Django Unchained.} \\~\\
+\end{center}
+L'affermazione può essere suddivisa come: \\~\\
 \begin{tabular}{ l | l }
     Soggetto (Risorsa) & Django Unchained \\
     Predicato (Proprietà) & director \\
@@ -129,9 +132,9 @@ L'affermazione può essere suddivisa come : \\~\\
 \item Centro della Linked Open Data Cloud
 \item Dump di Wikipedia trasformato in RDF
 \end{itemize}
-
 \begin{figure}
 \includegraphics[width=.30\textwidth]{figure/dbpedia_logo}
+\includegraphics[width=.60\textwidth]{figure/AboutDBPedia}
 \end{figure}
 \end{frame}
 
@@ -168,7 +171,24 @@ Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 \begin{frame}
 \frametitle{Grafo delle Risorse}
 Attraverso query SPARQL sono state estratte tutte le triple che avevano proprietà nota e un film come soggetto
-È stato generato il grafo relle risorse
+è stato generato il grafo delle risorse
+
+\begin{verbatim}
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+PREFIX prop: <http://dbpedia.org/ontology/>
+SELECT ?name
+WHERE {
+  dbpedia:Django\_Unchained prop:director ?name .
+}
+\end{verbatim}
+
+\begin{tabular}{|c|}
+  \hline
+  name \\
+  \hline
+  http://dbpedia.org/resource/Quentin\_Tarantino \\
+  \hline
+\end{tabular}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -378,4 +398,3 @@ Grazie per l'attenzione.
 \end{center}
 \end{frame}
 \end{document}
->>>>>>> f0eb6dde145ee560b1ed71c159d03769669713b0
