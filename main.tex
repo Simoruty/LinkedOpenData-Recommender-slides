@@ -4,7 +4,10 @@
 \RequirePackage{graphicx}
 \RequirePackage[italian]{babel}
 \usepackage[utf8x]{inputenc}
-
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+\tikzstyle{actor edge} = [red!90]
+\tikzstyle{director edge} = [blue!90]
 
 \title[LOD CB-RS]{Linked Open Data per un Content-based Recommender System}
 \institute{ \textbf{Accesso intelligente alle informazioni ed \\ elaborazione del linguaggio naturale\\}
@@ -173,14 +176,14 @@ Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 Attraverso query SPARQL sono state estratte tutte le triple che avevano proprietà nota e un film come soggetto
 è stato generato il grafo delle risorse
 
-\begin{verbatim}
-PREFIX dbpedia: <http://dbpedia.org/resource/>
-PREFIX prop: <http://dbpedia.org/ontology/>
-SELECT ?name
-WHERE {
-  dbpedia:Django\_Unchained prop:director ?name .
-}
-\end{verbatim}
+%\begin{verbatim}
+%PREFIX dbpedia: <http://dbpedia.org/resource/>
+%PREFIX prop: <http://dbpedia.org/ontology/>
+%SELECT ?name
+%WHERE {
+%  dbpedia:Django\_Unchained prop:director ?name .
+%}
+%\end{verbatim}
 
 \begin{tabular}{|c|}
   \hline
@@ -196,6 +199,47 @@ WHERE {
 \begin{frame}
 \frametitle{Grafo dei Film}
 Tutte le risorse non film sono state epurate ed inglobate all'interno degli archi.
+
+
+\begin{tikzpicture}
+[lineDecorate/.style={-,thick},%
+  actor/.style={shape=circle,inner sep=3pt,draw, thick},
+  film/.style={shape=diamond,inner sep=4pt,draw,thick, fill=blue!15}]
+  
+%% nodes or vertices
+\foreach \nodename/\x/\y/\direction/\navigate in {
+  $Django Unchained$/1/3/left/west, $Inglourious Basterds$/3/3/right/east, $Titanic$/1/1/below/south}
+{
+  \node (\nodename) at (\x,\y) [film] {};
+  \node [\direction] at (\nodename.\navigate) {\footnotesize$\nodename$};
+}
+
+\foreach \nodename/\x/\y/\direction/\navigate in {
+  $Quentin Tarantino$/2/4/above/north, $Leonardo Di caprio$/1/2/left/west, $Christoph Waltz$/3/2/right/east}
+{
+  \node (\nodename) at (\x,\y) [actor] {};
+  \node [\direction] at (\nodename.\navigate) {\footnotesize$\nodename$};
+}
+
+%% edges or lines
+\path
+\foreach \startnode/\endnode in {$Django Unchained$/$Leonardo Di caprio$, $Django Unchained$/$Christoph Waltz$, $Inglourious Basterds$/$Christoph Waltz$, $Leonardo Di caprio$/$Titanic$}
+{
+  (\startnode) edge[lineDecorate,director edge] node {} (\endnode)
+}
+
+\foreach \startnode/\endnode in {$Django Unchained$/$Quentin Tarantino$,$Quentin Tarantino$/$Inglourious Basterds$}
+{
+  (\startnode) edge[lineDecorate,bend left,actor edge] node {} (\endnode)
+}
+
+\foreach \startnode/\endnode in {$Quentin Tarantino$/$Django Unchained$, $Inglourious Basterds$/$Quentin Tarantino$}
+{
+  (\startnode) edge[lineDecorate,bend left,director edge] node {} (\endnode)
+};
+        
+\end{tikzpicture}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
