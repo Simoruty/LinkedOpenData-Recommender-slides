@@ -32,7 +32,6 @@ Corso di Laurea in Informatica Magistrale
 \pgfdeclareimage[height=1cm]{logo}{figure/logo}
 \logo{\pgfuseimage{logo}}
 
-
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -62,7 +61,7 @@ basato sulla \textbf{Linked Open Data Cloud}
 
 \begin{frame}
 \frametitle{Content-based Recommender System}
-Il sistema stabilisce a priori la distanza trai film al fine di raccomandare i più simili alle preferenze dell'utente 
+Il sistema stabilisce a priori la distanza trai film al fine di raccomandare i più simili alle preferenze dell'utente
 
 \begin{figure}
 \includegraphics[width=.8\textwidth]{figure/cbrs.jpg}
@@ -75,13 +74,17 @@ Il sistema stabilisce a priori la distanza trai film al fine di raccomandare i p
 \begin{frame}
 \frametitle{Linked Open Data Cloud}
 
-Collezione (Cloud) di dataset:
+%\includegraphics[width=.95\textwidth]{figure/LoDLogo.png}
+
+Collezione (\textbf{Cloud}) di dataset:
 \begin{itemize}
-\item descritti attraverso RDF 
-\item fortemente interconnessi fra loro (Linked)
-\item fruibili liberamente e gratuitamente (Open)
+\item descritti attraverso RDF
+\item fortemente interconnessi fra loro (\textbf{Linked})
+\item fruibili liberamente e gratuitamente (\textbf{Open})
 \end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Linked Open Data Cloud}
@@ -104,6 +107,21 @@ L'RDF Data Model si basa su tre principi chiave:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}
+\frametitle{Esempio - Resource Description Framework}
+Considerando la frase:\\~\\
+\begin{center} \emph{Tarantino is the director of the Django Unchained.} \\~\\
+\end{center}
+L'affermazione può essere suddivisa come: \\~\\
+\begin{tabular}{ l | l }
+    Soggetto (Risorsa) & Django Unchained \\
+    Predicato (Proprietà) & director \\
+    Oggetto (letterale) & Tarantino \\
+\end{tabular}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Progetto}
 
 \subsection{Sorgente dati}
@@ -114,9 +132,9 @@ L'RDF Data Model si basa su tre principi chiave:
 \item Centro della Linked Open Data Cloud
 \item Dump di Wikipedia trasformato in RDF
 \end{itemize}
-
 \begin{figure}
 \includegraphics[width=.30\textwidth]{figure/dbpedia_logo}
+\includegraphics[width=.60\textwidth]{figure/AboutDBPedia}
 \end{figure}
 \end{frame}
 
@@ -153,7 +171,24 @@ Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 \begin{frame}
 \frametitle{Grafo delle Risorse}
 Attraverso query SPARQL sono state estratte tutte le triple che avevano proprietà nota e un film come soggetto
-È stato generato il grafo relle risorse
+è stato generato il grafo delle risorse
+
+\begin{verbatim}
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+PREFIX prop: <http://dbpedia.org/ontology/>
+SELECT ?name
+WHERE {
+  dbpedia:Django\_Unchained prop:director ?name .
+}
+\end{verbatim}
+
+\begin{tabular}{|c|}
+  \hline
+  name \\
+  \hline
+  http://dbpedia.org/resource/Quentin\_Tarantino \\
+  \hline
+\end{tabular}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -176,7 +211,7 @@ Sono state applicate 4 distanze su grafo:
 \begin{itemize}
 \item Direct
 \item Combinated
-\item Direct Weighted 
+\item Direct Weighted
 \item Combinated Weighted
 \end{itemize}
 \end{frame}
