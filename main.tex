@@ -200,12 +200,13 @@ Attraverso query SPARQL sono state estratte tutte le triple che avevano propriet
 \frametitle{Grafo dei Film}
 Tutte le risorse non film sono state epurate ed inglobate all'interno degli archi.
 
-
+\begin{columns}[p]
+\begin{column}{0.8\textwidth} 
 \begin{tikzpicture}
 [lineDecorate/.style={-,thick},%
   actor/.style={shape=circle,inner sep=3pt,draw, thick},
   film/.style={shape=diamond,inner sep=4pt,draw,thick, fill=blue!15}]
-  
+
 %% nodes or vertices
 \foreach \nodename/\x/\y/\direction/\navigate in {
   $Django Unchained$/1/3/left/west, $Inglourious Basterds$/3/3/right/east, $Titanic$/1/1/below/south}
@@ -237,9 +238,21 @@ Tutte le risorse non film sono state epurate ed inglobate all'interno degli arch
 {
   (\startnode) edge[lineDecorate,bend left,director edge] node {} (\endnode)
 };
-        
-\end{tikzpicture}
 
+\end{tikzpicture}
+\end{column}
+
+\begin{column}{0.2\textwidth}
+\begin{tabbing}
+  Simbolo \= Valore \kill
+  % \> for next tab, \\ for new line...
+  a \> Film \\
+  b \> Actor \\
+  c \> Edge director \\
+  d \> Edge actor
+\end{tabbing}
+\end{column}
+\end{columns}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
