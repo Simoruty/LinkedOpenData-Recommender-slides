@@ -32,6 +32,7 @@ Corso di Laurea in Informatica Magistrale
 \pgfdeclareimage[height=1cm]{logo}{figure/logo}
 \logo{\pgfuseimage{logo}}
 
+
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -61,7 +62,7 @@ basato sulla \textbf{Linked Open Data Cloud}
 
 \begin{frame}
 \frametitle{Content-based Recommender System}
-Il sistema stabilisce a priori la distanza trai film al fine di raccomandare i più simili alle preferenze dell'utente
+Il sistema stabilisce a priori la distanza trai film al fine di raccomandare i più simili alle preferenze dell'utente 
 
 \begin{figure}
 \includegraphics[width=.8\textwidth]{figure/cbrs.jpg}
@@ -74,11 +75,11 @@ Il sistema stabilisce a priori la distanza trai film al fine di raccomandare i p
 \begin{frame}
 \frametitle{Linked Open Data Cloud}
 
-Collezione (\textbf{Cloud}) di dataset:
+Collezione (Cloud) di dataset:
 \begin{itemize}
-\item descritti attraverso RDF
-\item fortemente interconnessi fra loro (\textbf{Linked})
-\item fruibili liberamente e gratuitamente (\textbf{Open})
+\item descritti attraverso RDF 
+\item fortemente interconnessi fra loro (Linked)
+\item fruibili liberamente e gratuitamente (Open)
 \end{itemize}
 \end{frame}
 
@@ -99,22 +100,6 @@ L'RDF Data Model si basa su tre principi chiave:
 \item utilizzare il linguaggio meno espressivo per definire qualunque cosa
 \item qualunque cosa può dire qualunque cosa su qualunque cosa
 \end{enumerate}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Esempio - Resource Description Framework}
-Considerando la frase:\\~\\
-\emph{Tarantino is the director of the Django Unchained.} \\~\\
-L'affermazione può essere suddivisa come : \\~\\
-\begin{tabular}{ l | l }
-    Soggetto (Risorsa) & Django Unchained \\
-    Predicato (Proprietà) & director \\
-    Oggetto (letterale) & Tarantino \\
-\end{tabular}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -191,7 +176,7 @@ Sono state applicate 4 distanze su grafo:
 \begin{itemize}
 \item Direct
 \item Combinated
-\item Direct Weighted
+\item Direct Weighted 
 \item Combinated Weighted
 \end{itemize}
 \end{frame}
@@ -378,4 +363,3 @@ Grazie per l'attenzione.
 \end{center}
 \end{frame}
 \end{document}
->>>>>>> f0eb6dde145ee560b1ed71c159d03769669713b0
