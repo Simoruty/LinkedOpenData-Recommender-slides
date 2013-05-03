@@ -176,6 +176,7 @@ Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 Attraverso query SPARQL sono state estratte tutte le triple che avevano proprietà nota e un film come soggetto
 è stato generato il grafo delle risorse
 
+
 %\begin{verbatim}
 %PREFIX dbpedia: <http://dbpedia.org/resource/>
 %PREFIX prop: <http://dbpedia.org/ontology/>
@@ -192,6 +193,7 @@ Attraverso query SPARQL sono state estratte tutte le triple che avevano propriet
   http://dbpedia.org/resource/Quentin\_Tarantino \\
   \hline
 \end{tabular}
+
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -280,7 +282,7 @@ Tutte le risorse non film sono state epurate ed inglobate all'interno degli arch
   \node [\direction] at (\nodename.\navigate) {\small$\nodename$};
 }
   \node ($actor Di Caprio actor$) at (0,2) {\color{red}\scriptsize{actor Di Caprio actor}};
-  
+
 %% edges or lines
 \path
 \foreach \startnode/\endnode in {$Django Unchained$/$actor Di Caprio actor$,$actor Di Caprio actor$/$Titanic$}
