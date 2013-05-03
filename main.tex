@@ -20,6 +20,11 @@ Corso di Laurea in Informatica Magistrale
 \textbf{Simone Rutigliano}}
 \date{\tiny{\today}}
 
+\usebackgroundtemplate{%
+    \tikz\node[opacity=0.12]{
+        \includegraphics[width=\paperwidth, height=\paperheight]{./figure/escher_hands.jpg}
+    };
+}
 
 %\usetheme{Hannover}
 \usetheme{Copenhagen}
@@ -197,7 +202,7 @@ Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 Attraverso query SPARQL sono state estratte tutte le triple che avevano proprietà nota e un film come soggetto
 è stato generato il grafo delle risorse
 
-%\begin{lstlisting}
+%\begin{lstlisting}[frame=single]
 %PREFIX dbpedia: \textless http://dbpedia.org/resource/ \textgreater
 %PREFIX prop: \textless http://dbpedia.org/ontology/  \textgreater
 %SELECT ?name
@@ -223,7 +228,7 @@ Attraverso query SPARQL sono state estratte tutte le triple che avevano propriet
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Grafo delle risorse}
+\frametitle{Grafo delle Risorse}
 \begin{columns}[p]
 \begin{column}{0.8\textwidth}
 \begin{tikzpicture}
