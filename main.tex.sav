@@ -4,11 +4,7 @@
 \RequirePackage{graphicx}
 \RequirePackage[italian]{babel}
 \usepackage[utf8x]{inputenc}
-\usepackage{listings}
-\usepackage{tikz}
-\usetikzlibrary{arrows,shapes}
-\tikzstyle{actor edge} = [red!90]
-\tikzstyle{director edge} = [blue!90]
+
 
 \title[LOD CB-RS]{Linked Open Data per un Content-based Recommender System}
 \institute{ \textbf{Accesso intelligente alle informazioni ed \\ elaborazione del linguaggio naturale\\}
@@ -35,18 +31,6 @@ Corso di Laurea in Informatica Magistrale
 
 \pgfdeclareimage[height=1cm]{logo}{figure/logo}
 \logo{\pgfuseimage{logo}}
-
-
-
-\usepackage{tikz}
-\usetikzlibrary{arrows,shapes}
-\tikzstyle{vertex}=[circle,fill=black!25,minimum size=20pt,inner sep=0pt]
-\tikzstyle{selected vertex} = [vertex, fill=red!24]
-\tikzstyle{edge} = [draw,thick,-]
-\tikzstyle{weight} = [font=\small]
-\tikzstyle{selected edge} = [draw,line width=5pt,-,red!50]
-\tikzstyle{ignored edge} = [draw,line width=5pt,-,black!20]
-
 
 \begin{document}
 
@@ -132,7 +116,7 @@ L'affermazione può essere suddivisa come: \\~\\
 \begin{tabular}{ l | l }
     Soggetto (Risorsa) & Django Unchained \\
     Predicato (Proprietà) & director \\
-    Oggetto (Risorsa) & Tarantino \\
+    Oggetto (letterale) & Tarantino \\
 \end{tabular}
 \end{frame}
 
@@ -144,27 +128,21 @@ L'affermazione può essere suddivisa come: \\~\\
 
 \begin{frame}
 \frametitle{DBPedia}
-\begin{columns}
-
-\begin{column}{0.4\textwidth}
 \begin{itemize}
 \item Centro della Linked Open Data Cloud
 \item Dump di Wikipedia trasformato in RDF
 \end{itemize}
-\vspace{1cm}
-\centering\includegraphics[width=.8\textwidth]{figure/dbpedialogo}
-\end{column}
-\begin{column}{0.6\textwidth}
-\includegraphics[width=1\textwidth]{figure/AboutDBPedia}
-\end{column}
-\end{columns}
+\begin{figure}
+\includegraphics[width=.30\textwidth]{figure/dbpedia_logo}
+\includegraphics[width=.60\textwidth]{figure/AboutDBPedia}
+\end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Proprietà estratte}
 Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 \begin{columns}
-\begin{column}{0.5\textwidth}
+\column[t]{5cm}
 \begin{itemize}
 \item studio
 \item music
@@ -173,8 +151,7 @@ Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 \item editing
 \item director
 \end{itemize}
-\end{column}
-\begin{column}{0.5\textwidth}
+\column[t]{5cm}
 \begin{itemize}
 \item subject
 \item starring
@@ -182,7 +159,6 @@ Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 \item writer
 \item cinematography
 \end{itemize}
-\end{column}
 \end{columns}
 \end{frame}
 
@@ -196,96 +172,6 @@ Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 \frametitle{Grafo delle Risorse}
 Attraverso query SPARQL sono state estratte tutte le triple che avevano proprietà nota e un film come soggetto
 è stato generato il grafo delle risorse
-
-%\begin{lstlisting}
-%PREFIX dbpedia: \textless http://dbpedia.org/resource/ \textgreater
-%PREFIX prop: \textless http://dbpedia.org/ontology/  \textgreater
-%SELECT ?name
-%WHERE {
-%  dbpedia:Django_Unchained prop:director ?name .
-%}
-%\end{lstlisting}
-
-\begin{table}
-\begin{tabular}{|c|}
-  \hline
-  name \\
-  \hline
-  \\
-  http://dbpedia.org/resource/Quentin\_Tarantino \\
-  \\
-  \hline
-\end{tabular}
-\end{table}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Grafo delle risorse}
-\begin{columns}[p]
-\begin{column}{0.8\textwidth}
-\begin{tikzpicture}
-[lineDecorate/.style={-,thick},%
-  actor/.style={shape=circle,inner sep=3pt,draw, thick},
-  film/.style={shape=diamond,inner sep=4pt,draw,thick, fill=blue!15}]
-
-%% nodes or vertices
-\foreach \nodename/\x/\y/\direction/\navigate in {
-  $Django Unchained$/1/3/left/west, $Inglourious Basterds$/3/3/right/east, $Titanic$/1/1/below/south}
-{
-  \node (\nodename) at (\x,\y) [film] {};
-  \node [\direction] at (\nodename.\navigate) {\footnotesize$\nodename$};
-}
-
-\foreach \nodename/\x/\y/\direction/\navigate in {
-  $Quentin Tarantino$/2/4/above/north, $Leonardo Di caprio$/1/2/left/west, $Christoph Waltz$/3/2/right/east}
-{
-  \node (\nodename) at (\x,\y) [actor] {};
-  \node [\direction] at (\nodename.\navigate) {\footnotesize$\nodename$};
-}
-
-%% edges or lines
-\path
-\foreach \startnode/\endnode in {$Django Unchained$/$Leonardo Di caprio$, $Django Unchained$/$Christoph Waltz$, $Inglourious Basterds$/$Christoph Waltz$, $Leonardo Di caprio$/$Titanic$}
-{
-  (\startnode) edge[lineDecorate,director edge] node {} (\endnode)
-}
-
-\foreach \startnode/\endnode in {$Django Unchained$/$Quentin Tarantino$,$Quentin Tarantino$/$Inglourious Basterds$}
-{
-  (\startnode) edge[lineDecorate,bend left,actor edge] node {} (\endnode)
-}
-
-\foreach \startnode/\endnode in {$Quentin Tarantino$/$Django Unchained$, $Inglourious Basterds$/$Quentin Tarantino$}
-{
-  (\startnode) edge[lineDecorate,bend left,director edge] node {} (\endnode)
-};
-
-\end{tikzpicture}
-\end{column}
-
-\begin{column}{0.35\textwidth}
-\begin{tabular}{l l}
-  \begin{tikzpicture}[film/.style={shape=diamond,inner sep=3pt,draw,thick, fill=blue!15}]
-    \node (a) at (6,3) [film] {};
-    \node [right] at (a.west) {\footnotesize};
-  \end{tikzpicture}
-  & Film \\
-
- \begin{tikzpicture}[actor/.style={shape=circle,inner sep=3pt,draw, thick}]
-    \node (a) at (9,3) [actor] {};
-    \node [right] at (a.west) {\footnotesize};
- \end{tikzpicture}
- & Resource \\
-
-  \color{red}--- & Edge director \\
- \color{blue}--- & Edge actor \\
-\end{tabular}
-
-\end{column}
-\end{columns}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -293,38 +179,6 @@ Attraverso query SPARQL sono state estratte tutte le triple che avevano propriet
 \begin{frame}
 \frametitle{Grafo dei Film}
 Tutte le risorse non film sono state epurate ed inglobate all'interno degli archi.
-\\~\\
-\begin{tikzpicture}
-[lineDecorate/.style={-,thick},%
-  film/.style={shape=diamond,inner sep=4pt,draw,thick, fill=blue!15}]
-
-%% nodes or vertices
-\foreach \nodename/\x/\y/\direction/\navigate in {
-  $Django Unchained$/0/4/left/west, $Inglourious Basterds$/4/4/right/east, $Titanic$/0/1/below/south}
-{
-  \node (\nodename) at (\x,\y) [film] {};
-  \node [\direction] at (\nodename.\navigate) {\small$\nodename$};
-}
-  \node ($actor Di Caprio actor$) at (0,2) {\color{red}\scriptsize{actor Di Caprio actor}};
-
-%% edges or lines
-\path
-\foreach \startnode/\endnode in {$Django Unchained$/$actor Di Caprio actor$,$actor Di Caprio actor$/$Titanic$}
-{
-  (\startnode) edge[lineDecorate,actor edge] node[] {} (\endnode)
-}
-
-\foreach \startnode/\endnode in {$Django Unchained$/$Inglourious Basterds$}
-{
-  (\startnode) edge[lineDecorate,bend left,actor edge] node[auto] {\scriptsize{actor Tarantino actor}} (\endnode)
-}
-
-\foreach \startnode/\endnode in {$Inglourious Basterds$/$Django Unchained$}
-{
-  (\startnode) edge[lineDecorate,bend left,director edge] node[auto] {\scriptsize{director Tarantino director}} (\endnode)
-};
-
-\end{tikzpicture}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -404,58 +258,6 @@ Il profilo è stato rappresentato in 2 modi:
 
 \begin{frame}
 \frametitle{Risultati}
-
-\begin{scriptsize}
-
-\begin{columns}
-\begin{column}{0.4\textwidth}
-	\begin{tabular}{c | ccc}
-	\toprule
-	 & \multicolumn{3}{c}{$minSup\ (\%)$} \\
-	$minGR$ & 30 & 40 & 50 \\
-	\hline
-	1  & 528032 & 344798 & 254805 \\
-	2  & 523274 & 341534 & 252355 \\
-	8  & 516958 & 336733 & 248658 \\
-	64 & 513503 & 334292 & 246843 \\
-	\bottomrule
-	\end{tabular}
-Dataset TPAMI
-	\vspace{8 mm}
-	
-	\begin{tabular}{c | ccc}
-	\toprule
-	 & \multicolumn{3}{c}{$minSup\ (\%)$} \\
-	$minGR$ & 10 & 20 & 30 \\
-	\hline
-	1  & 386996 & 176407 & 114492 \\
-	2  & 382639 & 173372 & 112476 \\
-	8  & 376645 & 169406 & 109814 \\
-	64 & 374736 & 167742 & 108595 \\
-	\bottomrule
-	\end{tabular}
-Dataset ICML
-
-\end{column}
-
-\begin{column}{0.4\textwidth}
-	\begin{tabular}{c | ccc}
-	\toprule
-	 & \multicolumn{3}{c}{$minSup\ \ (\%)$} \\
-	$minGR$ & 10 & 20 & 30 \\
-	\hline
-	1  & 128327 & 88684 & 58603 \\
-	2  & 126840 & 87644 & 58091 \\
-	8  & 122591 & 84208 & 55718 \\
-	64 & 121363 & 82980 & 54490 \\
-	\bottomrule
-	\end{tabular}
-Dataset BG
-
-\end{column}
-\end{columns}
-
-\end{scriptsize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -516,6 +318,61 @@ TEPaC
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\begin{scriptsize}
+
+\begin{columns}
+\begin{column}{0.4\textwidth}
+	\begin{tabular}{c | ccc}
+	\toprule
+	 & \multicolumn{3}{c}{$minSup\ (\%)$} \\
+	$minGR$ & 30 & 40 & 50 \\
+	\hline
+	1  & 528032 & 344798 & 254805 \\
+	2  & 523274 & 341534 & 252355 \\
+	8  & 516958 & 336733 & 248658 \\
+	64 & 513503 & 334292 & 246843 \\
+	\bottomrule
+	\end{tabular}
+Dataset TPAMI
+	\vspace{8 mm}
+	
+	\begin{tabular}{c | ccc}
+	\toprule
+	 & \multicolumn{3}{c}{$minSup\ (\%)$} \\
+	$minGR$ & 10 & 20 & 30 \\
+	\hline
+	1  & 386996 & 176407 & 114492 \\
+	2  & 382639 & 173372 & 112476 \\
+	8  & 376645 & 169406 & 109814 \\
+	64 & 374736 & 167742 & 108595 \\
+	\bottomrule
+	\end{tabular}
+Dataset ICML
+
+\end{column}
+
+\begin{column}{0.4\textwidth}
+	\begin{tabular}{c | ccc}
+	\toprule
+	 & \multicolumn{3}{c}{$minSup\ \ (\%)$} \\
+	$minGR$ & 10 & 20 & 30 \\
+	\hline
+	1  & 128327 & 88684 & 58603 \\
+	2  & 126840 & 87644 & 58091 \\
+	8  & 122591 & 84208 & 55718 \\
+	64 & 121363 & 82980 & 54490 \\
+	\bottomrule
+	\end{tabular}
+Dataset BG
+
+\end{column}
+\end{columns}
+
+\end{scriptsize}
+\end{frame}
 
 
 \begin{frame}
