@@ -21,8 +21,8 @@ Corso di Laurea in Informatica Magistrale
 \date{\tiny{\today}}
 
 \usebackgroundtemplate{%
-    \tikz\node[opacity=0.1]{
-        \includegraphics[width=\paperwidth, height=\paperheight]{./figure/escher_hands.jpg} 
+    \tikz\node[opacity=0.12]{
+        \includegraphics[width=\paperwidth, height=\paperheight]{./figure/escher_hands.jpg}
     };
 }
 
@@ -202,7 +202,7 @@ Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 Attraverso query SPARQL sono state estratte tutte le triple che avevano proprietà nota e un film come soggetto
 è stato generato il grafo delle risorse
 
-%\begin{lstlisting}
+%\begin{lstlisting}[frame=single]
 %PREFIX dbpedia: \textless http://dbpedia.org/resource/ \textgreater
 %PREFIX prop: \textless http://dbpedia.org/ontology/  \textgreater
 %SELECT ?name
@@ -228,7 +228,7 @@ Attraverso query SPARQL sono state estratte tutte le triple che avevano propriet
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Grafo delle risorse}
+\frametitle{Grafo delle Risorse}
 \begin{columns}[p]
 \begin{column}{0.8\textwidth}
 \begin{tikzpicture}
@@ -355,12 +355,12 @@ Sono state applicate 4 distanze su grafo:
 \begin{frame}
 \frametitle{Rappresentazione del profilo}
 Il profilo è stato rappresentato in 2 modi:
-
+\begin{center}
 \begin{itemize}
 \item[Simple] Insieme di film positivi per l'utente
 \item[Weighted] Ogni film influisce, positivamente o negativamente, alle raccomandazioni, secondo il voto ricevuto
 \end{itemize}
-
+\end{center}
 
 \end{frame}
 

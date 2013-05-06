@@ -152,12 +152,12 @@ L'affermazione può essere suddivisa come: \\~\\
 \begin{columns}
 
 \begin{column}{0.4\textwidth}
+\vspace{1cm}
+\centering\includegraphics[width=.8\textwidth]{figure/dbpedialogo}
 \begin{itemize}
 \item Centro della Linked Open Data Cloud
 \item Dump di Wikipedia trasformato in RDF
 \end{itemize}
-\vspace{1cm}
-\centering\includegraphics[width=.8\textwidth]{figure/dbpedialogo}
 \end{column}
 \begin{column}{0.6\textwidth}
 \includegraphics[width=1\textwidth]{figure/AboutDBPedia}
@@ -197,12 +197,12 @@ Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Grafo delle Risorse}
 Attraverso query SPARQL sono state estratte tutte le triple che avevano proprietà nota e un film come soggetto
 è stato generato il grafo delle risorse
 
-%\begin{lstlisting}[frame=single]
+%\begin{lstlisting}
 %PREFIX dbpedia: \textless http://dbpedia.org/resource/ \textgreater
 %PREFIX prop: \textless http://dbpedia.org/ontology/  \textgreater
 %SELECT ?name
@@ -355,12 +355,12 @@ Sono state applicate 4 distanze su grafo:
 \begin{frame}
 \frametitle{Rappresentazione del profilo}
 Il profilo è stato rappresentato in 2 modi:
-
+\begin{center}
 \begin{itemize}
 \item[Simple] Insieme di film positivi per l'utente
 \item[Weighted] Ogni film influisce, positivamente o negativamente, alle raccomandazioni, secondo il voto ricevuto
 \end{itemize}
-
+\end{center}
 
 \end{frame}
 
