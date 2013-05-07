@@ -12,37 +12,37 @@
 
 \usepackage{color}
 \usepackage{xcolor}
-\definecolor{delim}{RGB}{20,105,176}
-\definecolor{keyword}{RGB}{20,105,176}
-\colorlet{numb}{magenta!60!black}
-\colorlet{punct}{red!60!black}
+\definecolor{var}{RGB}{20,105,176}
+\colorlet{prefix}{magenta!60!black}
+\colorlet{keyword}{red!60!black}
 \definecolor{light-gray}{gray}{0.95}
-%\lstdefinelanguage{xmlnostro}{
-%	basicstyle=\fontsize{8}{10}\selectfont\ttfamily\SetTracking{encoding=*}{-50}\lsstyle,
-%	backgroundcolor=\color{light-gray}, 
-%	numbers=left,
-%	numberstyle=\scriptsize,
-%	columns=fullflexible,
-%	stepnumber=1,
-%	numbersep=8pt,
-%	showstringspaces=false,
-%	breaklines=true,
-%	frame=lines,
-%	xleftmargin=25mm,
-%	xrightmargin=10mm,
-%	framexleftmargin=15mm,
-%	breakatwhitespace=false,
+\lstdefinelanguage{customized}{
+	basicstyle=\fontsize{8}{10}\selectfont \ttfamily,%
+%	backgroundcolor=\color{light-gray},% 
+%	numbers=left,%
+%	numberstyle=\scriptsize,%
+	columns=fullflexible,%
+%	stepnumber=1,%
+%	numbersep=8pt,%
+	showstringspaces=false,%
+	breaklines=true,%
+	frame=lines,%
+	xleftmargin=10mm, %
+	xrightmargin=25mm, %
+	breakatwhitespace=false, %
 	%numberstyle=\footnotesize,
-%	numbersep=10pt,
-%	tabsize=2,
-%	captionpos=b
-	%literate=     
-	%*{0}{{{\color{numb}{0}}}{1}
-	%{<}{{{\color{delim}{<}}}}{1}
-	%{>}{{{\color{delim}{>}}}}{1}
-	%{PREFIX}{{{\color{delim}{PREFIX}}}}{1},
-%}
-%\lstset{language=xmlnostro}
+%	numbersep=10pt, %
+	tabsize=2, %
+	captionpos=b, %
+	 literate=
+	 *{PREFIX}{{{\color{keyword}{PREFIX }}}}{1}
+	 {SELECT}{{{\color{keyword}{SELECT }}}}{1}
+	 {FROM}{{{\color{keyword}{FROM }}}}{1}
+	 {WHERE}{{{\color{keyword}{WHERE }}}}{1}
+	 {?name}{{{\color{var}{?name}}}}{1}
+	 {dbpedia: }{{{\color{prefix}{dbpedia:}}}}{1}
+	 {prop: }{{{\color{prefix}{prop:}}}}{1}
+}
 
 \title[LOD CB-RS]{Linked Open Data per un Content-based Recommender System}
 \institute{ \textbf{Accesso intelligente alle informazioni ed \\ elaborazione del linguaggio naturale\\}
@@ -234,29 +234,20 @@ Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 \begin{frame}[fragile]
 \frametitle{Grafo delle Risorse}
 Attraverso query SPARQL sono state estratte tutte le triple che avevano proprietà nota e un film come soggetto
-è stato generato il grafo delle risorse
-
-\begin{lstlisting}
-PREFIX dbpedia: \textless http://dbpedia.org/resource/ \textgreater
-PREFIX prop: \textless http://dbpedia.org/ontology/  \textgreater
+è stato generato il grafo delle risorse \\~\\
+\begin{lstlisting}[language=customized]
+PREFIX dbpedia: http://dbpedia.org/resource/
+PREFIX prop: http://dbpedia.org/ontology/
 SELECT ?name
 WHERE {
-  dbpedia:Django_Unchained prop:director ?name .
+dbpedia:Django_Unchained prop:director ?name .
 }
 \end{lstlisting}
+risultato:
 
-\begin{table}
-\begin{tabular}{|c|}
-  \hline
-  name \\
-  \hline
-  \\
-  http://dbpedia.org/resource/Quentin\_Tarantino \\
-  \\
-  \hline
-\end{tabular}
-\end{table}
-
+\begin{lstlisting}[language=customized]
+http://dbpedia.org/resource/Quentin\_Tarantino
+\end{lstlisting}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
