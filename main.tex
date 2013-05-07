@@ -10,6 +10,40 @@
 \tikzstyle{actor edge} = [red!90]
 \tikzstyle{director edge} = [blue!90]
 
+\usepackage{color}
+\usepackage{xcolor}
+\definecolor{delim}{RGB}{20,105,176}
+\definecolor{keyword}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+\colorlet{punct}{red!60!black}
+\definecolor{light-gray}{gray}{0.95}
+%\lstdefinelanguage{xmlnostro}{
+%	basicstyle=\fontsize{8}{10}\selectfont\ttfamily\SetTracking{encoding=*}{-50}\lsstyle,
+%	backgroundcolor=\color{light-gray}, 
+%	numbers=left,
+%	numberstyle=\scriptsize,
+%	columns=fullflexible,
+%	stepnumber=1,
+%	numbersep=8pt,
+%	showstringspaces=false,
+%	breaklines=true,
+%	frame=lines,
+%	xleftmargin=25mm,
+%	xrightmargin=10mm,
+%	framexleftmargin=15mm,
+%	breakatwhitespace=false,
+	%numberstyle=\footnotesize,
+%	numbersep=10pt,
+%	tabsize=2,
+%	captionpos=b
+	%literate=     
+	%*{0}{{{\color{numb}{0}}}{1}
+	%{<}{{{\color{delim}{<}}}}{1}
+	%{>}{{{\color{delim}{>}}}}{1}
+	%{PREFIX}{{{\color{delim}{PREFIX}}}}{1},
+%}
+%\lstset{language=xmlnostro}
+
 \title[LOD CB-RS]{Linked Open Data per un Content-based Recommender System}
 \institute{ \textbf{Accesso intelligente alle informazioni ed \\ elaborazione del linguaggio naturale\\}
 ~ \\
@@ -202,14 +236,14 @@ Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 Attraverso query SPARQL sono state estratte tutte le triple che avevano proprietà nota e un film come soggetto
 è stato generato il grafo delle risorse
 
-%\begin{lstlisting}
-%PREFIX dbpedia: \textless http://dbpedia.org/resource/ \textgreater
-%PREFIX prop: \textless http://dbpedia.org/ontology/  \textgreater
-%SELECT ?name
-%WHERE {
-%  dbpedia:Django_Unchained prop:director ?name .
-%}
-%\end{lstlisting}
+\begin{lstlisting}
+PREFIX dbpedia: \textless http://dbpedia.org/resource/ \textgreater
+PREFIX prop: \textless http://dbpedia.org/ontology/  \textgreater
+SELECT ?name
+WHERE {
+  dbpedia:Django_Unchained prop:director ?name .
+}
+\end{lstlisting}
 
 \begin{table}
 \begin{tabular}{|c|}
