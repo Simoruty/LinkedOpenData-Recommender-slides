@@ -18,7 +18,7 @@
 \definecolor{light-gray}{gray}{0.95}
 \lstdefinelanguage{customized}{
 	basicstyle=\fontsize{8}{10}\selectfont \ttfamily,%
-%	backgroundcolor=\color{light-gray},% 
+%	backgroundcolor=\color{light-gray},%
 %	numbers=left,%
 %	numberstyle=\scriptsize,%
 	columns=fullflexible,%
@@ -368,10 +368,10 @@ Tutte le risorse non film sono state epurate ed inglobate all'interno degli arch
 Sono state applicate 4 distanze su grafo:
 
 \begin{itemize}
-\item Direct
-\item Combinated
-\item Direct Weighted
-\item Combinated Weighted
+\item<1-> Direct
+\item<2-> Combinated
+\item<3-> Direct Weighted
+\item<4-> Combinated Weighted
 \end{itemize}
 \end{frame}
 
@@ -382,11 +382,52 @@ Sono state applicate 4 distanze su grafo:
 Il profilo è stato rappresentato in 2 modi:
 \begin{center}
 \begin{itemize}
-\item[Simple] Insieme di film positivi per l'utente
-\item[Weighted] Ogni film influisce, positivamente o negativamente, alle raccomandazioni, secondo il voto ricevuto
+\item<1-> \textsc{Simple} - Insieme di film positivi per l'utente
+\item<2-> \textsc{Weighted} - Ogni film influisce, positivamente o negativamente, alle raccomandazioni, secondo il voto ricevuto
+$$
+P_{NORM}(f_a) = Voto(f_a)- Voto_M\footnote{Valor medio delle votazioni pari a 3}
+$$
 \end{itemize}
 \end{center}
 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\frametitle{Esempio di profilazione}
+	considerati i film con le relative votazioni:
+	
+\begin{center}	
+	\begin{tabular}{l c}
+		\multicolumn{1}{c}{\textsc{Film}} & \textsc{Votazione} \\
+		\hline
+		Titanic & 5 \\
+		Django Unchained & 4 \\
+		Bastardi senza gloria & 2 \\
+		\hline
+	\end{tabular}
+\end{center}	
+\medskip
+I profili creati saranno:
+\begin{center}
+\begin{tabular}{l l}
+	\textbf{Simple} &
+	\begin{tabular}{l}
+		Django Unchained \\		
+		Titanic \\
+	\end{tabular} \\
+	\\
+	
+	\textbf{Weighted} &
+	\begin{tabular}{l r}
+		%		Film & rilevanza \\
+		Titanic & 2 \\
+		Django Unchained & 1 \\
+		Bastardi senza gloria & -1\\
+	\end{tabular}	\\
+\end{tabular}
+\end{center}	
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
