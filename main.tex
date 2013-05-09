@@ -48,9 +48,9 @@ Corso di Laurea in Informatica Magistrale
 \date{\tiny{\today}}
 
 \usebackgroundtemplate{
-%    \transparent{0.12}{
+    \transparent{0.12}{
         \includegraphics[width=\paperwidth, height=\paperheight]{./figure/escher_hands_tr.png}
-%    }
+    }
 }
 
 %\usetheme{Hannover}
@@ -112,7 +112,7 @@ basato sulla \textbf{Linked Open Data Cloud}
 Il sistema stabilisce a priori la distanza trai film al fine di raccomandare i più simili alle preferenze dell'utente
 
 \begin{figure}
-\includegraphics[width=.8\textwidth]{figure/cbrs.jpg}
+\includegraphics[width=.8\textwidth]{figure/cbrs.png}
 \end{figure}
 
 \end{frame}
@@ -378,11 +378,10 @@ Il profilo è stato rappresentato in 2 modi:
 	\item \textsc{Simple} - Insieme di film positivi per l'utente
 	\pause
 	\item \textsc{Weighted} - Ogni film influisce, positivamente o negativamente, alle raccomandazioni, secondo il voto ricevuto
-\end{itemize}
-\pause
 $$
 P_{NORM}(f_a) = Voto(f_a)- Voto_M\footnote{Valor medio delle votazioni pari a 3}
 $$
+\end{itemize}
 \end{center}
 
 \end{frame}
@@ -469,7 +468,30 @@ I profili creati saranno:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Risultati}
+\frametitle{Risultati - Configurazione ottimale}
+\begin{tabular}{c c}	
+	\includegraphics[width=.4\textwidth]{./figure/graphs/Ottim_prec} &
+	\includegraphics[width=.6\textwidth]{./figure/graphs/Ottim_precT} \\
+\end{tabular}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\frametitle{Risultati - Configurazione 2}
+	\begin{tabular}{c c}	
+		\includegraphics[width=.4\textwidth]{./figure/graphs/Nostra_prec} &
+		\includegraphics[width=.6\textwidth]{./figure/graphs/Nostra_precT} \\
+	\end{tabular}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Risultati - Configurazione 3}
+	\begin{tabular}{c c}	
+		\includegraphics[width=.4\textwidth]{./figure/graphs/Musto_prec} &
+		\includegraphics[width=.6\textwidth]{./figure/graphs/Musto_precT} \\
+	\end{tabular}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
