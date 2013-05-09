@@ -360,12 +360,65 @@ Tutte le risorse non film sono state epurate ed inglobate all'interno degli arch
 \frametitle{Distanze}
 Sono state applicate 4 distanze su grafo:
 
+\begin{columns}
+
+\begin{column}{.25\paperwidth}
 \begin{itemize}
-\item<1-> Direct
-\item<2-> Combinated
-\item<3-> Direct Weighted
-\item<4-> Combinated Weighted
+\item<1> Direct
+\vspace{.6cm}
+\item<2> Combinated
+\vspace{.6cm}
+\item<3> Direct Weighted
+\vspace{.6cm}
+\item<4> Combinated Weighted
 \end{itemize}
+\end{column}
+
+\begin{column}{.65\paperwidth}
+
+\only<1>{\begin{block}{Direct}\footnotesize{
+$$P_{d}(f_{a},f_{b}) = \frac{1} {1+C_{d}(f_{a},f_{b})+C_{d}(f_{b},f_{a})}$$
+
+$$C_{d}(f_a,f_b) = \left\vert \left\{ e \in Edges \  | \  (f_a \xrightarrow{~e~} f_b ) \right\} \right\vert$$
+}\end{block}}
+
+\only<2>{\begin{block}{Combinated}\tiny{
+$$P_{c}(f_{a},f_{b}) = \frac{1} {1+C_{d}(f_{a},f_{b})+C_{d}(f_{b},f_{a})+C_{io}(f_{a},f_{b})+C_{ii}(f_{a},f_{b})}$$
+\vspace{.4cm}
+$$C_{io}(f_a,f_b) = \left\vert \left\{ f \  | \  (f_a \xrightarrow{~e~} f ) \wedge (f_b \xrightarrow{~e~} f) \right\} \right\vert$$
+$$C_{ii}(f_a,f_b) = \left\vert \left\{ f \  | \  ( f \xrightarrow{~e~} f_a ) \wedge ( f \xrightarrow{~e~} f_b) \right\} \right\vert$$
+$$\text{con} \ e \in Edges  , \qquad f_a,f_b,f \in Films$$
+}\end{block}}
+
+\only<3>{\begin{block}{Direct Weighted}\scriptsize{
+$$
+P_{dw}(f_a,f_b) = \frac{1}{1+CW_{d}(f_a,f_b)+CW_{d}(f_b,f_a)}
+$$
+$$
+CW_{d}(f_a,f_b) = \sum_{e \in ED}^{}{weight(e)}
+$$
+$$
+ED_{f_a,f_b} = \left\{ e \in Edges \quad\big\vert\quad f_a \xrightarrow{~e~} f_b \right\}
+$$
+}\end{block}}
+
+
+\only<4>{\begin{block}{Combinated Weighted}\tiny{
+$$
+P_{cw}(f_{a},f_{b}) = \frac{1} {1+CW_{d}(f_a,f_b)+CW_{d}(f_b,f_a)+CW_{io}(f_a,f_b)+CW_{ii}(f_a,f_b)}
+$$
+$$
+E'_{f_a,f_b} = \left\{ (e_1, e_2) \in Edges \big\vert (f_a \xrightarrow{e_1} f_c) \wedge (f_b \xrightarrow{e_2} f_c) \wedge label(e_1)=label(e_2) \right\}
+$$ $$
+E''_{f_a,f_b} = \left\{ (e_1, e_2) \in Edges \big\vert (f_c \xrightarrow{e_1} f_a) \wedge (f_c \xrightarrow{e_2} f_b) \wedge label(e_1)=label(e_2) \right\}
+$$ $$
+CW_{io}(f_a,f_b) = \sum_{(e_1,e_2) \in E'_{f_a,f_b}}{weight(e_1)*weight(e_2)}
+$$ $$
+CW_{ii}(f_a,f_b) = \sum_{(e_1,e_2) \in E''_{f_a,f_b}}{weight(e_1)*weight(e_2)}
+$$
+}\end{block}}
+\end{column}
+\end{columns}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
