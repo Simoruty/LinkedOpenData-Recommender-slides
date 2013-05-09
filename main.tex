@@ -10,6 +10,8 @@
 \usetikzlibrary{arrows,shapes}
 \tikzstyle{actor edge} = [red!90]
 \tikzstyle{director edge} = [blue!90]
+\usepackage{pgfplots}
+\usepackage{scalefnt}
 
 \usepackage{color}
 \usepackage{xcolor}
@@ -519,13 +521,276 @@ I profili creati saranno:
 \subsection{Risultati}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}	
+	\frametitle{Risultati - Configurazione ottimale}	
+	 Micro precision
+	\begin{tikzpicture}
+	\begin{axis}[
+	legend style={
+		%font=\tiny,
+		%pos=outer north east,
+		%line width=.1pt,
+		%mark size=.6pt
+		},
+	width=.7\paperwidth,
+	grid=both, 
+	axis background/.style={fill=white}]
+	\addplot[color=red,thick] coordinates {
+		(5,11.35)
+		(10,9.15)
+		(20,7.35)
+		(50,5.69)
+		(100,4.66)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_D WEIGHTED}}
+	
+	\addplot[color=blue,thick] coordinates {
+		(5,10.60)
+		(10,8.99)
+		(20,7.59)
+		(50,5.87)
+		(100,4.77)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_D NOT WEIGHTED}}
+	
+	\addplot[color=gray!40!yellow,thick] coordinates {
+		(5,14.55)
+		(10,12.51)
+		(20,10.02)
+		(50,7.20)
+		(100,5.31)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_DW WEIGHTED}}
+	
+	\addplot[color=black,thick] coordinates {
+		(5,13.93)
+		(10,12.09)
+		(20,10.06)
+		(50,7.05)
+		(100,5.30)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_DW NOT WEIGHTED}}
+	
+	\addplot[color=green,thick] coordinates {
+		(5,6.72)
+		(10,5.63)
+		(20,4.59)
+		(50,4.08)
+		(100,3.63)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_C WEIGHTED}}
+	\addplot[color=orange,thick] coordinates {
+		(5,6.82)
+		(10,5.68)
+		(20,4.58)
+		(50,4.10)
+		(100,3.65)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_C NOT WEIGHTED}}
+	\addplot[color=brown,thick] coordinates {
+		(5,10.15)
+		(10,7.65)
+		(20,5.98)
+		(50,5.09)
+		(100,4.25)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_CW WEIGHTED}}
+	\addplot[color=magenta,thick] coordinates {
+		(5,9.85)
+		(10,7.29)
+		(20,5.65)
+		(50,4.92)
+		(100,4.15)
+	};
+	
+	\addlegendentry{\scalefont{0.5}{PASSANT\_CW NOT WEIGHTED}}
+	\end{axis}
+	\end{tikzpicture}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Risultati - Configurazione ottimale}	
+	 Micro precision Epurata
+	\begin{tikzpicture}
+	\begin{axis}[
+	legend style={
+		%font=\tiny,
+		%pos=outer north east,
+		%line width=.1pt,
+		%mark size=.6pt
+	},
+	width=.7\paperwidth,
+	grid=both, 
+	axis background/.style={fill=white}]
+	\addplot[color=red,thick] coordinates {
+		(5,65.29)
+		(10,62.06)
+		(20,59.23)
+		(50,56.88)
+		(100,56.62)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_D WEIGHTED}}
+	
+	\addplot[color=blue,thick] coordinates {
+		(5,65.06)
+		(10,61.54)
+		(20,58.50)
+		(50,56.92)
+		(100,56.62)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_D NOT WEIGHTED}}
+	
+	\addplot[color=gray!40!yellow,thick] coordinates {
+		(5,68.97)
+		(10,63.51)
+		(20,59.72)
+		(50,56.94)
+		(100,56.62)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_DW WEIGHTED}}
+	
+	\addplot[color=black,thick] coordinates {
+		(5,67.73)
+		(10,62.81)
+		(20,59.06)
+		(50,56.92)
+		(100,56.62)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_DW NOT WEIGHTED}}
+	
+	\addplot[color=green,thick] coordinates {
+		(5,62.71)
+		(10,60.77)
+		(20,58.33)
+		(50,56.88)
+		(100,56.62)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_C WEIGHTED}}
+	\addplot[color=orange,thick] coordinates {
+		(5,62.81)
+		(10,60.87)
+		(20,58.14)
+		(50,56.88)
+		(100,56.62)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_C NOT WEIGHTED}}
+	\addplot[color=brown,thick] coordinates {
+		(5,65.12)
+		(10,61.80)
+		(20,58.66)
+		(50,56.87)
+		(100,56.62)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_CW WEIGHTED}}
+	
+	\addplot[color=magenta,thick] coordinates {
+		(5,64.50)
+		(10,61.40)
+		(20,58.48)
+		(50,56.89)
+		(100,56.62)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_CW NOT WEIGHTED}}
+	\end{axis}
+	\end{tikzpicture}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Risultati - Configurazione2}	
+	Micro precision Epurata
+	\begin{tikzpicture}
+	\begin{axis}[
+	legend style={
+		%font=\tiny,
+		%pos=outer north east,
+		%line width=.1pt,
+		%mark size=.6pt
+	},
+	width=.7\paperwidth,
+	grid=both, 
+	axis background/.style={fill=white}]
+	\addplot[color=red,thick] coordinates {
+		(5,11.35)
+		(10,9.15)
+		(20,7.35)
+		(50,5.69)
+		(100,4.66)
+		
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_D WEIGHTED}}
+	
+	\addplot[color=blue,thick] coordinates {
+		(5,10.60)
+		(10,8.99)
+		(20,7.59)
+		(50,5.87)
+		(100,4.77)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_D NOT WEIGHTED}}
+	
+	\addplot[color=gray!40!yellow,thick] coordinates {
+		(5,13.54)
+		(10,11.44)
+		(20,9.03)
+		(50,6.73)
+		(100,5.06)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_DW WEIGHTED}}
+	
+	\addplot[color=black,thick] coordinates {
+		(5,13.44)
+		(10,11.45)
+		(20,9.03)
+		(50,6.61)
+		(100,5.13)		
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_DW NOT WEIGHTED}}
+	
+	\addplot[color=green,thick] coordinates {
+		(5,6.72)
+		(10,5.63)
+		(20,4.59)
+		(50,4.08)
+		(100,3.63)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_C WEIGHTED}}
+	
+	\addplot[color=orange,thick] coordinates {
+		(5,6.82)
+		(10,5.68)
+		(20,4.58)
+		(50,4.10)
+		(100,3.65)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_C NOT WEIGHTED}}
+	
+	\addplot[color=brown,thick] coordinates {
+		(5,7.08)
+		(10,6.07)
+		(20,5.02)
+		(50,4.38)
+		(100,3.92)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_CW WEIGHTED}}
+	
+	\addplot[color=magenta,thick] coordinates {
+		(5,7.31)
+		(10,5.94)
+		(20,5.05)
+		(50,4.36)
+		(100,3.93)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_CW NOT WEIGHTED}}
+	\end{axis}
+	\end{tikzpicture}
+\end{frame}	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Risultati - Configurazione ottimale}
-\begin{tabular}{c c}	
-	\includegraphics[width=.4\textwidth]{./figure/graphs/Ottim_prec} &
-	\includegraphics[width=.6\textwidth]{./figure/graphs/Ottim_precT} \\
-\end{tabular}
+	\includegraphics[width=.32\paperwidth]{./figure/graphs/Ottim_prec} 	\includegraphics[width=.32\paperwidth]{./figure/graphs/Ottim_precT1}
+	\includegraphics[width=.2\paperwidth]{./figure/graphs/legenda}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
