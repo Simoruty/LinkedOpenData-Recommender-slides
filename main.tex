@@ -1,8 +1,9 @@
 \documentclass{beamer}
 \usepackage{beamerthemesplit}
 \usepackage{booktabs}
-\RequirePackage{graphicx}
-\RequirePackage[italian]{babel}
+\usepackage{graphicx}
+\usepackage{transparent}
+\usepackage[italian]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{listings}
 \usepackage{tikz}
@@ -46,10 +47,10 @@ Corso di Laurea in Informatica Magistrale
 \textbf{Simone Rutigliano}}
 \date{\tiny{\today}}
 
-\usebackgroundtemplate{%
-    \tikz\node[opacity=0.12]{
-        \includegraphics[width=\paperwidth, height=\paperheight]{./figure/escher_hands.jpg}
-    };
+\usebackgroundtemplate{
+%    \transparent{0.12}{
+        \includegraphics[width=\paperwidth, height=\paperheight]{./figure/escher_hands_tr.png}
+%    }
 }
 
 %\usetheme{Hannover}
@@ -238,7 +239,7 @@ dbpedia:Django_Unchained prop:director ?name .
 risultato:
 
 \begin{lstlisting}[language=customized]
-http://dbpedia.org/resource/Quentin\_Tarantino
+http://dbpedia.org/resource/Quentin_Tarantino
 \end{lstlisting}
 \end{frame}
 
@@ -374,12 +375,14 @@ Sono state applicate 4 distanze su grafo:
 Il profilo è stato rappresentato in 2 modi:
 \begin{center}
 \begin{itemize}
-\item<1-> \textsc{Simple} - Insieme di film positivi per l'utente
-\item<2-> \textsc{Weighted} - Ogni film influisce, positivamente o negativamente, alle raccomandazioni, secondo il voto ricevuto
+	\item \textsc{Simple} - Insieme di film positivi per l'utente
+	\pause
+	\item \textsc{Weighted} - Ogni film influisce, positivamente o negativamente, alle raccomandazioni, secondo il voto ricevuto
+\end{itemize}
+\pause
 $$
 P_{NORM}(f_a) = Voto(f_a)- Voto_M\footnote{Valor medio delle votazioni pari a 3}
 $$
-\end{itemize}
 \end{center}
 
 \end{frame}
