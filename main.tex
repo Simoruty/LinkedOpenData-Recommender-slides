@@ -231,17 +231,17 @@ Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 Attraverso query SPARQL sono state estratte tutte le triple che avevano proprietà nota e un film come soggetto
 è stato generato il grafo delle risorse \\~\\
 \begin{lstlisting}[language=customized]
-PREFIX dbpedia: http://dbpedia.org/resource/
-PREFIX prop: http://dbpedia.org/ontology/
-SELECT ?name
-WHERE {
-dbpedia:Django_Unchained prop:director ?name .
-}
+ PREFIX dbpedia: http://dbpedia.org/resource/
+ PREFIX prop: http://dbpedia.org/ontology/
+ SELECT ?name
+ WHERE {
+    dbpedia:Django_Unchained prop:director ?name .
+ }
 \end{lstlisting}
 risultato:
 
 \begin{lstlisting}[language=customized]
-http://dbpedia.org/resource/Quentin_Tarantino
+  http://dbpedia.org/resource/Quentin_Tarantino
 \end{lstlisting}
 \end{frame}
 
@@ -521,9 +521,9 @@ I profili creati saranno:
 \subsection{Risultati}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}	
-	\frametitle{Risultati - Configurazione ottimale}	
-	 Micro precision
+\begin{frame}
+	\frametitle{Configurazione ottimale - Micro Precision}
+	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
 	legend style={
@@ -610,8 +610,8 @@ I profili creati saranno:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-	\frametitle{Risultati - Configurazione ottimale}	
-	 Micro precision Epurata
+	\frametitle{Configurazione ottimale - Micro precision Epurata}
+	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
 	legend style={
@@ -697,8 +697,8 @@ I profili creati saranno:
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-	\frametitle{Risultati - Configurazione Nostra}	
-	Micro precision
+	\frametitle{Configurazione Nostra - Micro precision}	
+	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
 	legend style={
@@ -788,8 +788,8 @@ I profili creati saranno:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-	\frametitle{Risultati - Configurazione Nostra}	
-	Micro precision Epurata
+	\frametitle{Configurazione Nostra - Micro precision Epurata}
+	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
 	legend style={
@@ -879,8 +879,8 @@ I profili creati saranno:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-	\frametitle{Risultati - Configurazione Musto}	
-	Micro precision
+	\frametitle{Configurazione Musto - Micro precision}	
+	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
 	legend style={
@@ -898,7 +898,6 @@ I profili creati saranno:
 		(20,7.35)
 		(50,5.69)
 		(100,4.66)
-		
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_D WEIGHTED}}
 	
@@ -970,8 +969,8 @@ I profili creati saranno:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-	\frametitle{Risultati - Configurazione musto}	
-	Micro precision Epurata
+	\frametitle{Configurazione musto - Micro precision Epurata}	
+	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
 	legend style={
@@ -1060,30 +1059,30 @@ I profili creati saranno:
 \end{frame}	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-\frametitle{Risultati - Configurazione ottimale}
-	\includegraphics[width=.32\paperwidth]{./figure/graphs/Ottim_prec} 	\includegraphics[width=.32\paperwidth]{./figure/graphs/Ottim_precT1}
-	\includegraphics[width=.2\paperwidth]{./figure/graphs/legenda}
-\end{frame}
+%\begin{frame}
+%\frametitle{Risultati - Configurazione ottimale}
+%	\includegraphics[width=.32\paperwidth]{./figure/graphs/Ottim_prec} 	\includegraphics[width=.32\paperwidth]{./figure/graphs/Ottim_precT1}
+%	\includegraphics[width=.2\paperwidth]{./figure/graphs/legenda}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-	\frametitle{Risultati - Configurazione 2}
-	\begin{tabular}{c c}	
-		\includegraphics[width=.4\textwidth]{./figure/graphs/Nostra_prec} &
-		\includegraphics[width=.6\textwidth]{./figure/graphs/Nostra_precT} \\
-	\end{tabular}
-\end{frame}
+%\begin{frame}
+%	\frametitle{Risultati - Configurazione 2}
+%	\begin{tabular}{c c}	
+%		\includegraphics[width=.4\textwidth]{./figure/graphs/Nostra_prec} &
+%		\includegraphics[width=.6\textwidth]{./figure/graphs/Nostra_precT} \\
+%	\end{tabular}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\frametitle{Risultati - Configurazione 3}
-	\begin{tabular}{c c}	
-		\includegraphics[width=.4\textwidth]{./figure/graphs/Musto_prec} &
-		\includegraphics[width=.6\textwidth]{./figure/graphs/Musto_precT} \\
-	\end{tabular}
-\end{frame}
+%\begin{frame}
+%	\frametitle{Risultati - Configurazione 3}
+%	\begin{tabular}{c c}	
+%		\includegraphics[width=.4\textwidth]{./figure/graphs/Musto_prec} &
+%		\includegraphics[width=.6\textwidth]{./figure/graphs/Musto_precT} \\
+%	\end{tabular}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
