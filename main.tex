@@ -518,186 +518,35 @@ I profili creati saranno:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{frame}
+\frametitle{Configurazioni dei pesi}
+
+\begin{center}
+\begin{tabular}{c | ccc}
+        \toprule
+        $property$ & ~~~A~~~ & ~~~B~~~ & ~~~C~~~ \\
+        \hline
+        editing			& .4 & .2 & - \\
+        music			& .1 & .1 & .3 \\
+        cinematography 	& .2 & .1 & - \\
+        director		& .8 & .7 & .8 \\
+        distributor 	& .2 & .1 & - \\
+        producer		& .1 & .1 & - \\
+        starring		& .7 & .6 & .5 \\
+        studio			& .1 & .1 & - \\
+        writer			& .4 & .3 & - \\
+        subject			& .5 & .8 & .2 \\
+        \bottomrule
+        \end{tabular}
+\end{center}
+\end{frame}
+
+
 \subsection{Risultati}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-	\frametitle{Configurazione ottimale - Micro Precision}
-	\hspace{1.5cm}
-	\begin{tikzpicture}
-	\begin{axis}[
-	legend style={
-		%font=\tiny,
-		%pos=outer north east,
-		%line width=.1pt,
-		%mark size=.6pt
-		},
-	width=.7\paperwidth,
-	grid=both, 
-	axis background/.style={fill=white}]
-	\addplot[color=red,thick] coordinates {
-		(5,11.35)
-		(10,9.15)
-		(20,7.35)
-		(50,5.69)
-		(100,4.66)
-	};
-	\addlegendentry{\scalefont{0.5}{PASSANT\_D WEIGHTED}}
-	
-	\addplot[color=blue,thick] coordinates {
-		(5,10.60)
-		(10,8.99)
-		(20,7.59)
-		(50,5.87)
-		(100,4.77)
-	};
-	\addlegendentry{\scalefont{0.5}{PASSANT\_D NOT WEIGHTED}}
-	
-	\addplot[color=gray!40!yellow,thick] coordinates {
-		(5,14.55)
-		(10,12.51)
-		(20,10.02)
-		(50,7.20)
-		(100,5.31)
-	};
-	\addlegendentry{\scalefont{0.5}{PASSANT\_DW WEIGHTED}}
-	
-	\addplot[color=black,thick] coordinates {
-		(5,13.93)
-		(10,12.09)
-		(20,10.06)
-		(50,7.05)
-		(100,5.30)
-	};
-	\addlegendentry{\scalefont{0.5}{PASSANT\_DW NOT WEIGHTED}}
-	
-	\addplot[color=green,thick] coordinates {
-		(5,6.72)
-		(10,5.63)
-		(20,4.59)
-		(50,4.08)
-		(100,3.63)
-	};
-	\addlegendentry{\scalefont{0.5}{PASSANT\_C WEIGHTED}}
-	\addplot[color=orange,thick] coordinates {
-		(5,6.82)
-		(10,5.68)
-		(20,4.58)
-		(50,4.10)
-		(100,3.65)
-	};
-	\addlegendentry{\scalefont{0.5}{PASSANT\_C NOT WEIGHTED}}
-	\addplot[color=brown,thick] coordinates {
-		(5,10.15)
-		(10,7.65)
-		(20,5.98)
-		(50,5.09)
-		(100,4.25)
-	};
-	\addlegendentry{\scalefont{0.5}{PASSANT\_CW WEIGHTED}}
-	\addplot[color=magenta,thick] coordinates {
-		(5,9.85)
-		(10,7.29)
-		(20,5.65)
-		(50,4.92)
-		(100,4.15)
-	};
-	
-	\addlegendentry{\scalefont{0.5}{PASSANT\_CW NOT WEIGHTED}}
-	\end{axis}
-	\end{tikzpicture}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\frametitle{Configurazione ottimale - Micro precision Epurata}
-	\hspace{1.5cm}
-	\begin{tikzpicture}
-	\begin{axis}[
-	legend style={
-		%font=\tiny,
-		%pos=outer north east,
-		%line width=.1pt,
-		%mark size=.6pt
-	},
-	width=.7\paperwidth,
-	grid=both, 
-	axis background/.style={fill=white}]
-	\addplot[color=red,thick] coordinates {
-		(5,65.29)
-		(10,62.06)
-		(20,59.23)
-		(50,56.88)
-		(100,56.62)
-	};
-	\addlegendentry{\scalefont{0.5}{PASSANT\_D WEIGHTED}}
-	
-	\addplot[color=blue,thick] coordinates {
-		(5,65.06)
-		(10,61.54)
-		(20,58.50)
-		(50,56.92)
-		(100,56.62)
-	};
-	\addlegendentry{\scalefont{0.5}{PASSANT\_D NOT WEIGHTED}}
-	
-	\addplot[color=gray!40!yellow,thick] coordinates {
-		(5,68.97)
-		(10,63.51)
-		(20,59.72)
-		(50,56.94)
-		(100,56.62)
-	};
-	\addlegendentry{\scalefont{0.5}{PASSANT\_DW WEIGHTED}}
-	
-	\addplot[color=black,thick] coordinates {
-		(5,67.73)
-		(10,62.81)
-		(20,59.06)
-		(50,56.92)
-		(100,56.62)
-	};
-	\addlegendentry{\scalefont{0.5}{PASSANT\_DW NOT WEIGHTED}}
-	
-	\addplot[color=green,thick] coordinates {
-		(5,62.71)
-		(10,60.77)
-		(20,58.33)
-		(50,56.88)
-		(100,56.62)
-	};
-	\addlegendentry{\scalefont{0.5}{PASSANT\_C WEIGHTED}}
-	\addplot[color=orange,thick] coordinates {
-		(5,62.81)
-		(10,60.87)
-		(20,58.14)
-		(50,56.88)
-		(100,56.62)
-	};
-	\addlegendentry{\scalefont{0.5}{PASSANT\_C NOT WEIGHTED}}
-	\addplot[color=brown,thick] coordinates {
-		(5,65.12)
-		(10,61.80)
-		(20,58.66)
-		(50,56.87)
-		(100,56.62)
-	};
-	\addlegendentry{\scalefont{0.5}{PASSANT\_CW WEIGHTED}}
-	
-	\addplot[color=magenta,thick] coordinates {
-		(5,64.50)
-		(10,61.40)
-		(20,58.48)
-		(50,56.89)
-		(100,56.62)
-	};
-	\addlegendentry{\scalefont{0.5}{PASSANT\_CW NOT WEIGHTED}}
-	\end{axis}
-	\end{tikzpicture}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\frametitle{Configurazione Nostra - Micro precision}	
+	\frametitle{Configurazione A - Micro precision}	
 	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
@@ -788,7 +637,7 @@ I profili creati saranno:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-	\frametitle{Configurazione Nostra - Micro precision Epurata}
+	\frametitle{Configurazione A - Micro precision Epurata}
 	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
@@ -879,7 +728,7 @@ I profili creati saranno:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-	\frametitle{Configurazione Musto - Micro precision}	
+	\frametitle{Configurazione B - Micro precision}	
 	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
@@ -969,7 +818,7 @@ I profili creati saranno:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-	\frametitle{Configurazione musto - Micro precision Epurata}	
+	\frametitle{Configurazione B - Micro precision Epurata}	
 	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
@@ -1056,7 +905,185 @@ I profili creati saranno:
 	\addlegendentry{\scalefont{0.5}{PASSANT\_CW NOT WEIGHTED}}
 	\end{axis}
 	\end{tikzpicture}
-\end{frame}	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Configurazione C - Micro Precision}
+	\hspace{1.5cm}
+	\begin{tikzpicture}
+	\begin{axis}[
+	legend style={
+		%font=\tiny,
+		%pos=outer north east,
+		%line width=.1pt,
+		%mark size=.6pt
+		},
+	width=.7\paperwidth,
+	grid=both, 
+	axis background/.style={fill=white}]
+	\addplot[color=red,thick] coordinates {
+		(5,11.35)
+		(10,9.15)
+		(20,7.35)
+		(50,5.69)
+		(100,4.66)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_D WEIGHTED}}
+	
+	\addplot[color=blue,thick] coordinates {
+		(5,10.60)
+		(10,8.99)
+		(20,7.59)
+		(50,5.87)
+		(100,4.77)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_D NOT WEIGHTED}}
+	
+	\addplot[color=gray!40!yellow,thick] coordinates {
+		(5,14.55)
+		(10,12.51)
+		(20,10.02)
+		(50,7.20)
+		(100,5.31)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_DW WEIGHTED}}
+	
+	\addplot[color=black,thick] coordinates {
+		(5,13.93)
+		(10,12.09)
+		(20,10.06)
+		(50,7.05)
+		(100,5.30)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_DW NOT WEIGHTED}}
+	
+	\addplot[color=green,thick] coordinates {
+		(5,6.72)
+		(10,5.63)
+		(20,4.59)
+		(50,4.08)
+		(100,3.63)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_C WEIGHTED}}
+	\addplot[color=orange,thick] coordinates {
+		(5,6.82)
+		(10,5.68)
+		(20,4.58)
+		(50,4.10)
+		(100,3.65)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_C NOT WEIGHTED}}
+	\addplot[color=brown,thick] coordinates {
+		(5,10.15)
+		(10,7.65)
+		(20,5.98)
+		(50,5.09)
+		(100,4.25)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_CW WEIGHTED}}
+	\addplot[color=magenta,thick] coordinates {
+		(5,9.85)
+		(10,7.29)
+		(20,5.65)
+		(50,4.92)
+		(100,4.15)
+	};
+	
+	\addlegendentry{\scalefont{0.5}{PASSANT\_CW NOT WEIGHTED}}
+	\end{axis}
+	\end{tikzpicture}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Configurazione C - Micro precision Epurata}
+	\hspace{1.5cm}
+	\begin{tikzpicture}
+	\begin{axis}[
+	legend style={
+		%font=\tiny,
+		%pos=outer north east,
+		%line width=.1pt,
+		%mark size=.6pt
+	},
+	width=.7\paperwidth,
+	grid=both, 
+	axis background/.style={fill=white}]
+	\addplot[color=red,thick] coordinates {
+		(5,65.29)
+		(10,62.06)
+		(20,59.23)
+		(50,56.88)
+		(100,56.62)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_D WEIGHTED}}
+	
+	\addplot[color=blue,thick] coordinates {
+		(5,65.06)
+		(10,61.54)
+		(20,58.50)
+		(50,56.92)
+		(100,56.62)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_D NOT WEIGHTED}}
+	
+	\addplot[color=gray!40!yellow,thick] coordinates {
+		(5,68.97)
+		(10,63.51)
+		(20,59.72)
+		(50,56.94)
+		(100,56.62)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_DW WEIGHTED}}
+	
+	\addplot[color=black,thick] coordinates {
+		(5,67.73)
+		(10,62.81)
+		(20,59.06)
+		(50,56.92)
+		(100,56.62)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_DW NOT WEIGHTED}}
+	
+	\addplot[color=green,thick] coordinates {
+		(5,62.71)
+		(10,60.77)
+		(20,58.33)
+		(50,56.88)
+		(100,56.62)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_C WEIGHTED}}
+	\addplot[color=orange,thick] coordinates {
+		(5,62.81)
+		(10,60.87)
+		(20,58.14)
+		(50,56.88)
+		(100,56.62)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_C NOT WEIGHTED}}
+	\addplot[color=brown,thick] coordinates {
+		(5,65.12)
+		(10,61.80)
+		(20,58.66)
+		(50,56.87)
+		(100,56.62)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_CW WEIGHTED}}
+	
+	\addplot[color=magenta,thick] coordinates {
+		(5,64.50)
+		(10,61.40)
+		(20,58.48)
+		(50,56.89)
+		(100,56.62)
+	};
+	\addlegendentry{\scalefont{0.5}{PASSANT\_CW NOT WEIGHTED}}
+	\end{axis}
+	\end{tikzpicture}
+\end{frame}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\begin{frame}
