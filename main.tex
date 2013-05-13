@@ -12,6 +12,9 @@
 \tikzstyle{director edge} = [blue!90]
 \usepackage{pgfplots}
 \usepackage{scalefnt}
+\definecolor{gold}{RGB}{255, 215, 0}
+\definecolor{silver}{RGB}{192,192,192}
+\definecolor{bronze}{RGB}{205, 127, 50}
 
 \usepackage{color}
 \usepackage{xcolor}
@@ -513,7 +516,36 @@ I profili creati saranno:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Metriche}
+\frametitle{Metriche - $\mu$ Precision}
+\begin{equation*}
+	\mu Precision =\frac{\sum\limits_{u\in U}^{}TP_u}{\sum\limits_{u\in U}^{}TP_u+\sum\limits_{u\in U}^{}FP_u}
+\end{equation*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Metriche - $M$ Precision}
+\begin{equation*}
+	MPrecision =\frac{1}{|U|}\sum\limits_{u\in U}{Precision_u}
+\end{equation*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\frametitle{Metriche - $\mu$ MRR}
+	\begin{equation*}
+		\mu MRR =\frac{\sum\limits_{i=1}^{|R|}{\frac{relevant(r_i)}{i}}}{\sum\limits_{i=1}^{|R|}{\frac{1}{i}}} \qquad relevant(r_i)=\begin{cases} 1 & \mbox{se }r_i\mbox{ è rilevante} \\ 0 & \mbox{altrimenti}
+		\end{cases}
+	\end{equation*}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Metriche - $M$ MRR}
+	\begin{equation*}
+		MacroMRR =\frac{1}{|U|}\sum_{u\in U}{MRR_u}
+	\end{equation*}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -541,12 +573,11 @@ I profili creati saranno:
 \end{center}
 \end{frame}
 
-
 \subsection{Risultati}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-	\frametitle{Configurazione A - Micro precision}	
+	\frametitle{Configurazione A - $\mu$ Precision}	
 	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
@@ -637,7 +668,7 @@ I profili creati saranno:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-	\frametitle{Configurazione A - Micro precision Epurata}
+	\frametitle{Configurazione A - $\mu$ Precision Epurata}
 	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
@@ -728,7 +759,7 @@ I profili creati saranno:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-	\frametitle{Configurazione B - Micro precision}	
+	\frametitle{Configurazione B - $\mu$ Precision}	
 	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
@@ -818,7 +849,7 @@ I profili creati saranno:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-	\frametitle{Configurazione B - Micro precision Epurata}	
+	\frametitle{Configurazione B - $\mu$ Precision Epurata}	
 	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
@@ -909,7 +940,7 @@ I profili creati saranno:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-	\frametitle{Configurazione C - Micro Precision}
+	\frametitle{Configurazione C - $\mu$ Precision}
 	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
@@ -997,7 +1028,7 @@ I profili creati saranno:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-	\frametitle{Configurazione C - Micro precision Epurata}
+	\frametitle{Configurazione C - $\mu$ Precision Epurata}
 	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
@@ -1112,17 +1143,161 @@ I profili creati saranno:
 %\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{$\mu$ Precision}
+	\begin{columns}[htbp]
+		\begin{column}{.68\paperwidth}
+				\begin{tikzpicture}
+				\begin{axis}[
+				xmin=0,     
+				xmax=110,    
+				ymin=4,     
+				ymax=16,
+				ylabel=$\mu\;precision (\%)$,
+				xlabel= $k$,
+				/pgfplots/xtick={5,10,20,50,100}, 
+				legend style={
+					%font=\tiny,
+					%pos=outer north east,
+					%line width=.1pt,
+					%mark size=.6pt
+				},
+				width=.9\textwidth,
+				height=.8\textwidth,
+				grid=both, 
+				axis background/.style={fill=white}]
+				\addplot[color=silver,thick] coordinates {
+					(5,13.54)
+					(10,11.44)
+					(20,9.03)
+					(50,6.73)
+					(100,5.06)
+					
+				};
+				\addlegendentry{CONFIG A} % conf A = nostra
+				
+				\addplot[color=bronze,thick] coordinates {
+					(5,12.10)
+					(10,9.98)
+					(20,8.15)
+					(50,6.04)
+					(100,4.85)
+				};
+				\addlegendentry{CONFIG B} % conf B = musto
+				
+				\addplot[color=gold,thick] coordinates {
+					(5,14.55)
+					(10,12.51)
+					(20,10.02)
+					(50,7.20)
+					(100,5.31)
+				};
+				\addlegendentry{CONFIG C} % conf C = max raggiunto
+				
+				\addplot[color=black,thick] coordinates {
+					(5,11.35)
+					(10,9.15)
+					(20,7.35)
+					(50,5.69)
+					(100,4.66)
+				};
+				\addlegendentry{BASELINE}
+				\end{axis}
+				\end{tikzpicture}				
+		\end{column}
+		\begin{column}{.3\paperwidth}
+				\begin{itemize}
+					\scriptsize
+						\item +3.2 \% per $k = 5 $
+						\item +3.36 \% per $k = 10 $
+						\item +2.67 \% per $k = 20 $
+						\item +1.51 \% per $k = 50 $
+						\item +0.65 \% per $k = 100 $			
+				\end{itemize} 
+		\end{column}
+	\end{columns}
+\end{frame} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{$\mu$ Precision Epurata}
+	\begin{columns}[htbp]
+		\begin{column}{.68\paperwidth}
+			\begin{figure}
+				\begin{tikzpicture}
+				\begin{axis}[
+				xmin=0,     
+				xmax=110,    
+				ymin=56,
+				ymax=70,     
+				ylabel=$\mu\;precision (\%)$,
+				xlabel= $k$,
+				/pgfplots/xtick={5,10,20,50,100}, 
+				legend style={
+					%font=\tiny,
+					%pos=outer north east,
+					%line width=.1pt,
+					%mark size=.6pt
+				},
+				width=.9\textwidth,
+				height=.8\textwidth,
+				grid=both, 
+				axis background/.style={fill=white}]
+				\addplot[color=silver,thick] coordinates {
+					(5,67.57)
+					(10,63.11)
+					(20,59.37)
+					(50,56.88)
+					(100,56.62)
+					
+				};
+				\addlegendentry{CONFIG A} % conf A = nostra
+				
+				\addplot[color=bronze,thick] coordinates {
+					(5,66.49)
+					(10,62.62)
+					(20,59.36)
+					(50,56.88)
+					(100,56.62)
+				};
+				\addlegendentry{CONFIG B} % conf B = musto
+				
+				\addplot[color=gold,thick] coordinates {
+					(5,68.97)
+					(10,63.51)
+					(20,59.72)
+					(50,56.94)
+					(100,56.62)
+				};
+				\addlegendentry{CONFIG C} % conf C = max raggiunto
+				
+				\addplot[color=black,thick] coordinates {
+					(5,65.29)
+					(10,62.06)
+					(20,59.23)
+					(50,56.88)
+					(100,56.62)
+				};
+				\addlegendentry{BASELINE}
+				\end{axis}
+				\end{tikzpicture}
+			\end{figure}
+		\end{column}
+		\begin{column}{.3\paperwidth}
+			\begin{itemize}
+			\scriptsize
+				\item +3.68 \% per $k = 5 $
+				\item +1.45 \% per $k = 10 $
+				\item +0.49 \% per $k = 20 $
+				\item +0.06 \% per $k = 50 $
+				\item 0 \% per $k = 100 $			
+			\end{itemize} 
+		\end{column}
+	\end{columns}
+\end{frame}	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Conclusioni e sviluppi futuri}
-\begin{frame}
-\frametitle{Conclusioni e sviluppi futuri}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \begin{frame}
 %	basicstyle=\fontsize{8}{10}\selectfont \ttfamily,%
 \begin{center}
