@@ -514,17 +514,12 @@ I profili creati saranno:
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\section{Metriche}
 \begin{frame}
-\frametitle{Metriche - $\mu$ Precision}
+\frametitle{Precision}
 \begin{equation*}
 	\mu Precision =\frac{\sum\limits_{u\in U}^{}TP_u}{\sum\limits_{u\in U}^{}TP_u+\sum\limits_{u\in U}^{}FP_u}
 \end{equation*}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Metriche - $M$ Precision}
 \begin{equation*}
 	MPrecision =\frac{1}{|U|}\sum\limits_{u\in U}{Precision_u}
 \end{equation*}
@@ -533,21 +528,17 @@ I profili creati saranno:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-	\frametitle{Metriche - $\mu$ MRR}
+	\frametitle{MRR}
 	\begin{equation*}
 		\mu MRR =\frac{\sum\limits_{i=1}^{|R|}{\frac{relevant(r_i)}{i}}}{\sum\limits_{i=1}^{|R|}{\frac{1}{i}}} \qquad relevant(r_i)=\begin{cases} 1 & \mbox{se }r_i\mbox{ è rilevante} \\ 0 & \mbox{altrimenti}
 		\end{cases}
 	\end{equation*}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\frametitle{Metriche - $M$ MRR}
 	\begin{equation*}
 		MacroMRR =\frac{1}{|U|}\sum_{u\in U}{MRR_u}
 	\end{equation*}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
@@ -573,7 +564,7 @@ I profili creati saranno:
 \end{center}
 \end{frame}
 
-\subsection{Risultati}
+\section{Risultati}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
