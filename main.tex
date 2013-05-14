@@ -490,12 +490,6 @@ I profili creati saranno:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}
-\frametitle{Raccomandazioni}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Sperimentazione}
 \subsection{Dataset}
 \begin{frame}
@@ -537,16 +531,16 @@ The ability to retrieve top-ranked documents that are mostly relevant.
 
 \begin{frame}
 	\frametitle{MRR}
-	\begin{equation*}
-		\mu MRR =\frac{\sum\limits_{i=1}^{|R|}{\frac{relevant(r_i)}{i}}}{\sum\limits_{i=1}^{|R|}{\frac{1}{i}}} \qquad relevant(r_i)=\begin{cases} 1 & \mbox{se }r_i\mbox{ è rilevante} \\ 0 & \mbox{altrimenti}
-		\end{cases}
-	\end{equation*}
-	\begin{equation*}
-		MacroMRR =\frac{1}{|U|}\sum_{u\in U}{MRR_u}
-	\end{equation*}
+	Il Mean Reciprocal Rank (MRR) è un indice statistico per valutare un processo che produce una lista di possibili risposte ad una interrogazione (query), ordinate per probabilità di correttezza.
+		\begin{equation*}
+			\mu MRR =\frac{\sum\limits_{i=1}^{|R|}{\frac{relevant(r_i)}{i}}}{\sum\limits_{i=1}^{|R|}{\frac{1}{i}}} \qquad relevant(r_i)=\begin{cases} 1 & \mbox{se }r_i\mbox{ è rilevante} \\ 0 & \mbox{altrimenti}
+			\end{cases}
+		\end{equation*}
+		\begin{equation*}
+			MacroMRR =\frac{1}{|U|}\sum_{u\in U}{MRR_u}
+		\end{equation*}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
