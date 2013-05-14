@@ -500,11 +500,12 @@ I profili creati saranno:
 \subsection{Dataset}
 \begin{frame}
 \frametitle{MovieLens}
-Cosa è \textbf{MovieLens}? \\
-\href{http://www.grouplens.org/}{\emph{GroupLens Research}}\footnote{\tiny Gruppo di ricerca del Department of Computer Science and Engineering at the University of Minnesota in ambito di Recommender system algorithms e Information filtering.} ha raccolto e reso disponibili dei rating data sets estratti dal sito web di \href{http://movielens.umn.edu}{\emph{MovieLens}}.
-Il dataset è composto da 518 film e 613 utenti. Ciascun utente ha votato più film, con una votazione che va da 1 a 5. 
+Cosa è \textbf{MovieLens}? \\ \vspace{0.5cm}
+
+\href{http://www.grouplens.org/}{\emph{GroupLens Research}}\footnote{\tiny \emph{Gruppo di ricerca del Department of Computer Science and Engineering at the University of Minnesota in ambito di Recommender system algorithms e Information filtering}.} ha raccolto e reso disponibili dei rating datasets estratti dal sito web di \href{http://movielens.umn.edu}{\emph{MovieLens}}.
+Il dataset preso in considerazione è composto da 518 film e 613 utenti. Ciascun utente ha votato più film, con una votazione che va da 1 a 5. 
 \begin{figure}
-	\includegraphics[width=.3\textwidth]{figure/gl-logo} ~~ 
+	\includegraphics[width=.3\textwidth]{figure/gl-logo} ~~~~ 
 	\includegraphics[width=.3\textwidth]{figure/movielens-helping}
 \end{figure}
 \end{frame}
@@ -522,6 +523,8 @@ Il dataset è composto da 518 film e 613 utenti. Ciascun utente ha votato più f
 \subsection{Metriche}
 \begin{frame}
 \frametitle{Precision}
+
+The ability to retrieve top-ranked documents that are mostly relevant.
 \begin{equation*}
 	\mu Precision =\frac{\sum\limits_{u\in U}^{}TP_u}{\sum\limits_{u\in U}^{}TP_u+\sum\limits_{u\in U}^{}FP_u}
 \end{equation*}
@@ -1214,7 +1217,6 @@ Il dataset è composto da 518 film e 613 utenti. Ciascun utente ha votato più f
 	\end{columns}
 \end{frame} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusioni e sviluppi futuri}
 \begin{frame}
 	\frametitle{$\mu$ Precision Epurata}
 	\begin{columns}[htbp]
@@ -1292,6 +1294,7 @@ Il dataset è composto da 518 film e 613 utenti. Ciascun utente ha votato più f
 	\end{columns}
 \end{frame}	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusioni e sviluppi futuri}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
