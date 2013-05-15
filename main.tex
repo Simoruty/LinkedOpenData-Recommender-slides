@@ -7,6 +7,7 @@
 \usepackage[utf8x]{inputenc}
 \usepackage{listings}
 \usepackage{tikz}
+\usepackage{amsfonts}
 \usetikzlibrary{arrows,shapes}
 \tikzstyle{actor edge} = [red!90]
 \tikzstyle{director edge} = [blue!90]
@@ -73,9 +74,6 @@ Corso di Laurea in Informatica Magistrale
 \pgfdeclareimage[height=1cm]{logo}{figure/logo}
 \logo{\pgfuseimage{logo}}
 
-
-
-\usepackage{tikz}
 \usetikzlibrary{arrows,shapes}
 \tikzstyle{vertex}=[circle,fill=black!25,minimum size=20pt,inner sep=0pt]
 \tikzstyle{selected vertex} = [vertex, fill=red!24]
@@ -511,19 +509,66 @@ Il dataset preso in considerazione è composto da 518 film e 613 utenti. Ciascun
 
 \begin{frame}
 \frametitle{Protocollo Sperimentale}
+\begin{enumerate}
+	\setlength{\itemsep}{10pt}
+	\item<1-> Split del set di ogni utente secondo la proporzione 70/30
+	\item<2-> Per ogni utente creare:
+	\begin{itemize}
+		\setlength{\itemsep}{6pt}
+		\item[$\diamond$] I due profili utente (pesato e non pesato) utilizzando il Training set
+		\item[$\diamond$] Le liste di raccomandazioni, contenente la totalità dei film, ordinate per importanza, secondo le diverse tipologie di distanza
+	\end{itemize}
+	\item<3-> $\forall k \in (5,10,20,50,100)$ calcolo delle metriche\footnote{\footnotesize{\emph{Precisione $P_k$ ed MRR}}} in base ad ogni combinazione profilo-distanza
+\end{enumerate}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\frametitle{Protocollo Sperimentale}
+	\begin{columns}[t]
+		\begin{column}{0.5\textwidth}
+				\begin{itemize}
+					\setlength{\itemsep}{10pt}
+					\item<1-> \textbf{Distanze}:
+					\begin{itemize}
+						\item \emph{Passant D}
+						\item \emph{Passant C}
+						\item \emph{Passant DW}
+						\item \emph{Passant CW}
+					\end{itemize}
+					\item<2-> \textbf{Profili}:
+					\begin{itemize}
+						\item \emph{Pesato}
+						\item \emph{Non Pesato}
+					\end{itemize}
+				\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item<3-> \textbf{Numero di raccomandazioni $k$}:
+				\begin{itemize}
+					\item \emph{5}
+					\item \emph{10}	
+					\item \emph{20}
+					\item \emph{50}
+					\item \emph{100}
+				\end{itemize}
+			\end{itemize}
+		\end{column}
+	\end{columns}
+	\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Metriche}
 \begin{frame}
 \frametitle{Precision}
 L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
-\begin{equation*}
-	\mu Precision =\frac{\sum\limits_{u\in U}^{}TP_u}{\sum\limits_{u\in U}^{}TP_u+\sum\limits_{u\in U}^{}FP_u}
-\end{equation*}
-\begin{equation*}
+\begin{align*}
+	\mu Precision =\frac{\sum\limits_{u\in U}^{}TP_u}{\sum\limits_{u\in U}^{}TP_u+\sum\limits_{u\in U}^{}FP_u} \\
 	MPrecision =\frac{1}{|U|}\sum\limits_{u\in U}{Precision_u}
-\end{equation*}
+\end{align*}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -535,9 +580,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 			\mu MRR =\frac{\sum\limits_{i=1}^{|R|}{\frac{relevant(r_i)}{i}}}{\sum\limits_{i=1}^{|R|}{\frac{1}{i}}} \qquad relevant(r_i)=\begin{cases} 1 & \mbox{se }r_i\mbox{ è rilevante} \\ 0 & \mbox{altrimenti}
 			\end{cases}
 		\end{equation*}
-		\begin{equation*}
-			MacroMRR =\frac{1}{|U|}\sum_{u\in U}{MRR_u}
-		\end{equation*}
+		$$ MacroMRR =\frac{1}{|U|}\sum_{u\in U}{MRR_u} $$
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
