@@ -616,6 +616,14 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
+	xmin=5,
+	xmax=50,
+	%ymin=56,
+	%ymax=70,
+	ylabel=$\mu\;precision (\%)$,
+	xlabel= $k$,
+	/pgfplots/xtick={5,10,20,50},
+	/pgfplots/ytick={5,7,8,9,10,11,13,14},
 	legend style={
 		%font=\tiny,
 		%pos=outer north east,
@@ -630,7 +638,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,9.15)
 		(20,7.35)
 		(50,5.69)
-		(100,4.66)
+		%(100,4.66)
 		
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_D WEIGHTED}}
@@ -640,7 +648,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,8.99)
 		(20,7.59)
 		(50,5.87)
-		(100,4.77)
+		%(100,4.77)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_D NOT WEIGHTED}}
 	
@@ -649,7 +657,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,11.44)
 		(20,9.03)
 		(50,6.73)
-		(100,5.06)
+		%(100,5.06)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_DW WEIGHTED}}
 	
@@ -658,7 +666,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,11.45)
 		(20,9.03)
 		(50,6.61)
-		(100,5.13)		
+		%(100,5.13)		
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_DW NOT WEIGHTED}}
 	
@@ -667,7 +675,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,5.63)
 		(20,4.59)
 		(50,4.08)
-		(100,3.63)
+		%(100,3.63)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_C WEIGHTED}}
 	
@@ -676,7 +684,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,5.68)
 		(20,4.58)
 		(50,4.10)
-		(100,3.65)
+		%(100,3.65)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_C NOT WEIGHTED}}
 	
@@ -685,7 +693,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,6.07)
 		(20,5.02)
 		(50,4.38)
-		(100,3.92)
+		%(100,3.92)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_CW WEIGHTED}}
 	
@@ -694,7 +702,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,5.94)
 		(20,5.05)
 		(50,4.36)
-		(100,3.93)
+		%(100,3.93)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_CW NOT WEIGHTED}}
 	\end{axis}
@@ -707,6 +715,13 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
+	xmin=5,
+	xmax=50,
+	ymin=56.8,
+	ymax=68,
+	ylabel=$\mu\;precision (\%)$,
+	xlabel= $k$,
+	/pgfplots/xtick={5,10,20,50},
 	legend style={
 		%font=\tiny,
 		%pos=outer north east,
@@ -721,7 +736,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,62.06)
 		(20,59.23)
 		(50,56.88)
-		(100,56.62)
+		%(100,56.62)
 		
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_D WEIGHTED}}
@@ -731,7 +746,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,61.54)
 		(20,58.50)
 		(50,56.92)
-		(100,56.62)
+		%(100,56.62)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_D NOT WEIGHTED}}
 	
@@ -740,7 +755,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,63.11)
 		(20,59.37)
 		(50,56.88)
-		(100,56.62)
+		%(100,56.62)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_DW WEIGHTED}}
 	
@@ -749,7 +764,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,62.36)
 		(20,58.80)
 		(50,56.89)
-		(100,56.62)		
+		%(100,56.62)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_DW NOT WEIGHTED}}
 	
@@ -758,7 +773,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,60.77)
 		(20,58.80)
 		(50,56.89)
-		(100,56.62)
+		%(100,56.62)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_C WEIGHTED}}
 	
@@ -767,7 +782,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,60.87)
 		(20,58.14)
 		(50,56.88)
-		(100,56.62)
+		%(100,56.62)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_C NOT WEIGHTED}}
 	
@@ -776,7 +791,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,60.89)
 		(20,58.26)
 		(50,56.84)
-		(100,56.62)
+		%(100,56.62)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_CW WEIGHTED}}
 	
@@ -785,7 +800,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,60.89)
 		(20,58.32)
 		(50,56.90)
-		(100,56.62)
+		%(100,56.62)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_CW NOT WEIGHTED}}
 	\end{axis}
@@ -798,6 +813,14 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
+	xmin=5,
+	xmax=50,
+	%ymin=56.8,
+	%ymax=68,
+	ylabel=$\mu\;precision (\%)$,
+	xlabel= $k$,
+	/pgfplots/xtick={5,10,20,50},
+	/pgfplots/ytick={5,7,8,9,10,11,13,14},
 	legend style={
 		%font=\tiny,
 		%pos=outer north east,
@@ -888,6 +911,13 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
+	xmin=5,
+	xmax=50,
+%	ymin=56.8,
+%	ymax=68,
+	ylabel=$\mu\;precision (\%)$,
+	xlabel= $k$,
+	/pgfplots/xtick={5,10,20,50},
 	legend style={
 		%font=\tiny,
 		%pos=outer north east,
@@ -979,6 +1009,14 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
+		xmin=5,
+		xmax=50,
+		%ymin=56.8,
+		%ymax=68,
+		ylabel=$\mu\;precision (\%)$,
+		xlabel= $k$,
+		/pgfplots/xtick={5,10,20,50},
+		/pgfplots/ytick={5,7,8,9,10,11,13,14},
 	legend style={
 		%font=\tiny,
 		%pos=outer north east,
@@ -993,7 +1031,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,9.15)
 		(20,7.35)
 		(50,5.69)
-		(100,4.66)
+		%(100,4.66)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_D WEIGHTED}}
 	
@@ -1002,7 +1040,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,8.99)
 		(20,7.59)
 		(50,5.87)
-		(100,4.77)
+		%(100,4.77)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_D NOT WEIGHTED}}
 	
@@ -1011,7 +1049,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,12.51)
 		(20,10.02)
 		(50,7.20)
-		(100,5.31)
+		%(100,5.31)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_DW WEIGHTED}}
 	
@@ -1020,7 +1058,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,12.09)
 		(20,10.06)
 		(50,7.05)
-		(100,5.30)
+		%(100,5.30)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_DW NOT WEIGHTED}}
 	
@@ -1029,7 +1067,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,5.63)
 		(20,4.59)
 		(50,4.08)
-		(100,3.63)
+		%(100,3.63)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_C WEIGHTED}}
 	\addplot[color=orange,thick] coordinates {
@@ -1037,7 +1075,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,5.68)
 		(20,4.58)
 		(50,4.10)
-		(100,3.65)
+		%(100,3.65)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_C NOT WEIGHTED}}
 	\addplot[color=brown,thick] coordinates {
@@ -1045,7 +1083,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,7.65)
 		(20,5.98)
 		(50,5.09)
-		(100,4.25)
+		%(100,4.25)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_CW WEIGHTED}}
 	\addplot[color=magenta,thick] coordinates {
@@ -1053,7 +1091,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,7.29)
 		(20,5.65)
 		(50,4.92)
-		(100,4.15)
+		%(100,4.15)
 	};
 	
 	\addlegendentry{\scalefont{0.5}{PASSANT\_CW NOT WEIGHTED}}
@@ -1067,7 +1105,15 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
-	legend style={
+		xmin=5,
+		xmax=50,
+		ymin=56.8,
+		ymax=69.7,
+		ylabel=$\mu\;precision (\%)$,
+		xlabel= $k$,
+		/pgfplots/xtick={5,10,20,50},
+		/pgfplots/ytick={56,59,61,62,64,65,68},
+ 		legend style={
 		%font=\tiny,
 		%pos=outer north east,
 		%line width=.1pt,
@@ -1081,7 +1127,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,62.06)
 		(20,59.23)
 		(50,56.88)
-		(100,56.62)
+		%(100,56.62)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_D WEIGHTED}}
 	
@@ -1090,7 +1136,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,61.54)
 		(20,58.50)
 		(50,56.92)
-		(100,56.62)
+		%(100,56.62)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_D NOT WEIGHTED}}
 	
@@ -1099,7 +1145,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,63.51)
 		(20,59.72)
 		(50,56.94)
-		(100,56.62)
+		%(100,56.62)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_DW WEIGHTED}}
 	
@@ -1108,7 +1154,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,62.81)
 		(20,59.06)
 		(50,56.92)
-		(100,56.62)
+		%(100,56.62)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_DW NOT WEIGHTED}}
 	
@@ -1117,7 +1163,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,60.77)
 		(20,58.33)
 		(50,56.88)
-		(100,56.62)
+		%(100,56.62)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_C WEIGHTED}}
 	\addplot[color=orange,thick] coordinates {
@@ -1125,7 +1171,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,60.87)
 		(20,58.14)
 		(50,56.88)
-		(100,56.62)
+		%(100,56.62)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_C NOT WEIGHTED}}
 	\addplot[color=brown,thick] coordinates {
@@ -1133,7 +1179,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,61.80)
 		(20,58.66)
 		(50,56.87)
-		(100,56.62)
+		%(100,56.62)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_CW WEIGHTED}}
 	
@@ -1142,7 +1188,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		(10,61.40)
 		(20,58.48)
 		(50,56.89)
-		(100,56.62)
+		%(100,56.62)
 	};
 	\addlegendentry{\scalefont{0.5}{PASSANT\_CW NOT WEIGHTED}}
 	\end{axis}
@@ -1184,13 +1230,14 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		\begin{column}{.68\paperwidth}
 				\begin{tikzpicture}
 				\begin{axis}[
-				xmin=0,     
-				xmax=110,    
-				ymin=4,     
-				ymax=16,
+				xmin=5,
+				xmax=50,
+				ymin=5,
+				ymax=15,
 				ylabel=$\mu\;precision (\%)$,
 				xlabel= $k$,
-				/pgfplots/xtick={5,10,20,50,100}, 
+				/pgfplots/xtick={5,10,20,50},
+				/pgfplots/ytick={5,7,8,9,11,12,13,14,15},
 				legend style={
 					%font=\tiny,
 					%pos=outer north east,
@@ -1206,7 +1253,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 					(10,11.44)
 					(20,9.03)
 					(50,6.73)
-					(100,5.06)
+					%(100,5.06)
 					
 				};
 				\addlegendentry{CONFIG A} % conf A = nostra
@@ -1216,7 +1263,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 					(10,9.98)
 					(20,8.15)
 					(50,6.04)
-					(100,4.85)
+					%(100,4.85)
 				};
 				\addlegendentry{CONFIG B} % conf B = musto
 				
@@ -1225,7 +1272,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 					(10,12.51)
 					(20,10.02)
 					(50,7.20)
-					(100,5.31)
+					%(100,5.31)
 				};
 				\addlegendentry{CONFIG C} % conf C = max raggiunto
 				
@@ -1234,7 +1281,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 					(10,9.15)
 					(20,7.35)
 					(50,5.69)
-					(100,4.66)
+					%(100,4.66)
 				};
 				\addlegendentry{BASELINE}
 				\end{axis}
@@ -1247,7 +1294,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 						\item +3.36 \% per $k = 10 $
 						\item +2.67 \% per $k = 20 $
 						\item +1.51 \% per $k = 50 $
-						\item +0.65 \% per $k = 100 $			
+						%\item +0.65 \% per $k = 100 $			
 				\end{itemize} 
 		\end{column}
 	\end{columns}
@@ -1260,13 +1307,14 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 			\begin{figure}
 				\begin{tikzpicture}
 				\begin{axis}[
-				xmin=0,     
-				xmax=110,    
+				xmin=5,
+				xmax=50,
 				ymin=56,
-				ymax=70,     
+				ymax=70,
 				ylabel=$\mu\;precision (\%)$,
 				xlabel= $k$,
-				/pgfplots/xtick={5,10,20,50,100}, 
+				/pgfplots/xtick={5,10,20,50},
+				/pgfplots/ytick={56,58,60,65,67,69,58},
 				legend style={
 					%font=\tiny,
 					%pos=outer north east,
@@ -1282,7 +1330,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 					(10,63.11)
 					(20,59.37)
 					(50,56.88)
-					(100,56.62)
+					%(100,56.62)
 					
 				};
 				\addlegendentry{CONFIG A} % conf A = nostra
@@ -1292,7 +1340,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 					(10,62.62)
 					(20,59.36)
 					(50,56.88)
-					(100,56.62)
+					%(100,56.62)
 				};
 				\addlegendentry{CONFIG B} % conf B = musto
 				
@@ -1301,7 +1349,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 					(10,63.51)
 					(20,59.72)
 					(50,56.94)
-					(100,56.62)
+					%(100,56.62)
 				};
 				\addlegendentry{CONFIG C} % conf C = max raggiunto
 				
@@ -1310,7 +1358,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 					(10,62.06)
 					(20,59.23)
 					(50,56.88)
-					(100,56.62)
+					%(100,56.62)
 				};
 				\addlegendentry{BASELINE}
 				\end{axis}
@@ -1324,7 +1372,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 				\item +1.45 \% per $k = 10 $
 				\item +0.49 \% per $k = 20 $
 				\item +0.06 \% per $k = 50 $
-				\item 0 \% per $k = 100 $			
+				%\item 0 \% per $k = 100 $			
 			\end{itemize} 
 		\end{column}
 	\end{columns}
