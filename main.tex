@@ -584,6 +584,117 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Configurazioni singole - $\mu$ Precision}	
+\begin{tikzpicture}
+\begin{axis}[
+/tikz/font={\scriptsize},
+xmin=5,
+xmax=50,
+ymin=4,
+ymax=12,
+ylabel=$\mu\;precision (\%)$,
+xlabel= $k$,
+minor grid style={gray!30},
+major grid style={black!50},
+/pgfplots/xtick={5,10,20,50},
+/pgfplots/ytick={4,...,14},
+%yticklabel shift=0.5cm,
+%/pgfplots/ytick=data,
+grid=major,
+extra y ticks={4.1,4.2,...,4.9,5.1,5.2,...,5.9,
+	6.1,6.2,...,6.9,7.1,7.2,...,7.9,8.1,8.2,...,8.9,
+	9.1,9.2,...,9.9,10.1,10.2,...,10.9,11.1,11.2,...,11.9,
+	12.1,12.2,...,12.9,13.1,13.2,...,13.9,14.1,14.2,...,14.9},
+mark=none,
+extra y tick style={yticklabels={},grid=minor,tiny,ytick pos=left},
+width=.7\paperwidth,
+grid=both, 
+axis background/.style={fill=white}]
+\addplot[color=gold,thick] coordinates {
+	(5,11.13)
+	(10,9.33)
+	(20,7.66)
+	(50,6.24)	
+};
+\addlegendentry{\scalefont{0.5}{Director}}
+
+\addplot[color=silver,thick] coordinates {
+	(5,10.64)
+	(10,8.74)
+	(20,7.22)
+	(50,5.80)
+};
+\addlegendentry{\scalefont{0.5}{Subject}}
+
+\addplot[color=bronze,thick] coordinates {
+	(5,7.47)
+	(10,6.59)
+	(20,5.84)
+	(50,4.90)
+};
+\addlegendentry{\scalefont{0.5}{Cinematography}}
+
+\addplot[color=red,thick] coordinates {
+	(5,7.15)
+	(10,6.41)
+	(20,5.73)
+	(50,4.73)
+};
+\addlegendentry{\scalefont{0.5}{Starring}}
+
+\addplot[color=green,thick] coordinates {
+	(5,6.56)
+	(10,6.02)
+	(20,5.51)
+	(50,5.38)
+};
+\addlegendentry{\scalefont{0.5}{Writer}}
+
+\addplot[color=orange,thick] coordinates {
+	(5,6.82)
+	(10,6.05)
+	(20,5.47)
+	(50,4.74)
+};
+\addlegendentry{\scalefont{0.5}{Music}}
+
+\addplot[color=teal,thick] coordinates {
+	(5,6.59)
+	(10,5.74)
+	(20,5.29)
+	(50,4.97)
+};
+\addlegendentry{\scalefont{0.5}{Producer}}
+
+\addplot[color=magenta,thick] coordinates {
+	(5,5.81)
+	(10,4.75)
+	(20,4.20)
+	(50,4.06)
+};
+\addlegendentry{\scalefont{0.5}{Studio}}
+
+\addplot[color=blue,thick] coordinates {
+	(5,4.63)
+	(10,5.29)
+	(20,5.03)
+	(50,3.93)
+};
+\addlegendentry{\scalefont{0.5}{Distributor}}
+
+\addplot[color=black,very thick] coordinates {
+	(5,11.35)
+	(10,9.15)
+	(20,7.35)
+	(50,5.69)	
+};
+\addlegendentry{\scalefont{0.5}{\color{red}Baseline}}
+\end{axis}
+\end{tikzpicture}	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
 \frametitle{Configurazioni dei pesi}
@@ -613,7 +724,6 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 	\frametitle{Configurazione A - $\mu$ Precision}	
-	\hspace{1.5cm}
 	\begin{tikzpicture}
 
 	\begin{axis}[
@@ -725,7 +835,6 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 
 \begin{frame}
 	\frametitle{Configurazione A - $\mu$ Precision Epurata}
-	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
 	/tikz/font={\scriptsize},
@@ -836,7 +945,6 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 	\frametitle{Configurazione B - $\mu$ Precision}	
-	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
 	/tikz/font={\scriptsize},
@@ -946,7 +1054,6 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 
 \begin{frame}
 	\frametitle{Configurazione B - $\mu$ Precision Epurata}	
-	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
 	/tikz/font={\scriptsize},
@@ -1057,7 +1164,6 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 	\frametitle{Configurazione C - $\mu$ Precision}
-	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
 	/tikz/font={\scriptsize},
@@ -1165,7 +1271,6 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 	\frametitle{Configurazione C - $\mu$ Precision Epurata}
-	\hspace{1.5cm}
 	\begin{tikzpicture}
 	\begin{axis}[
 	/tikz/font={\scriptsize},
@@ -1308,7 +1413,7 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 				/tikz/font={\scriptsize},
 				xmin=5,
 				xmax=50,
-			ymin=4,
+			ymin=5,
 			ymax=15,
 			ylabel=$\mu\;precision (\%)$,
 			xlabel= $k$,
