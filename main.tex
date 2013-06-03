@@ -16,7 +16,6 @@
 \definecolor{gold}{RGB}{255, 215, 0}
 \definecolor{silver}{RGB}{192,192,192}
 \definecolor{bronze}{RGB}{205, 127, 50}
-
 \usepackage{color}
 \usepackage{xcolor}
 \definecolor{var}{RGB}{20,105,176}
@@ -33,14 +32,14 @@
 	breakatwhitespace=false, %
 	tabsize=2, %
 	captionpos=b, %
-	 literate=
-	 *{PREFIX}{{{\color{keyword}{PREFIX }}}}{1}
-	 {SELECT}{{{\color{keyword}{SELECT }}}}{1}
-	 {FROM}{{{\color{keyword}{FROM }}}}{1}
-	 {WHERE}{{{\color{keyword}{WHERE }}}}{1}
-	 {?name}{{{\color{var}{?name}}}}{1}
-	 {dbpedia: }{{{\color{prefix}{dbpedia:}}}}{1}
-	 {prop: }{{{\color{prefix}{prop:}}}}{1}
+ literate=
+ *{PREFIX}{{{\color{keyword}{PREFIX }}}}{1}
+ {SELECT}{{{\color{keyword}{SELECT }}}}{1}
+ {FROM}{{{\color{keyword}{FROM }}}}{1}
+ {WHERE}{{{\color{keyword}{WHERE }}}}{1}
+ {?name}{{{\color{var}{?name}}}}{1}
+ {dbpedia: }{{{\color{prefix}{dbpedia:}}}}{1}
+ {prop: }{{{\color{prefix}{prop:}}}}{1}
 }
 
 \title[LOD CB-RS]{Linked Open Data per un Content-based Recommender System}
@@ -55,7 +54,7 @@ Corso di Laurea in Informatica Magistrale
 
 \usebackgroundtemplate{
 %    \transparent{0.12}{
-        \includegraphics[width=\paperwidth, height=\paperheight]{./figure/escher_hands_tr.png}
+     \includegraphics[width=\paperwidth, height=\paperheight]{./figure/escher_hands_tr.png}
 %    }
 }
 
@@ -95,7 +94,8 @@ Corso di Laurea in Informatica Magistrale
 
 \begin{frame}
 \frametitle{Outline}
-\tableofcontents
+	\vfill\eject
+	\tableofcontents
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -165,9 +165,9 @@ Considerando la frase:\\~\\
 \end{center}
 L'affermazione può essere suddivisa come: \\~\\
 \begin{tabular}{ l | l }
-    Soggetto (Risorsa) & Django Unchained \\
-    Predicato (Proprietà) & director \\
-    Oggetto (Risorsa) & Tarantino \\
+ Soggetto (Risorsa) & Django Unchained \\
+ Predicato (Proprietà) & director \\
+ Oggetto (Risorsa) & Tarantino \\
 \end{tabular}
 \end{frame}
 
@@ -234,17 +234,17 @@ Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 Attraverso query SPARQL sono state estratte tutte le triple che avevano proprietà nota e un film come soggetto
 è stato generato il grafo delle risorse \\~\\
 \begin{lstlisting}[language=customized]
- PREFIX dbpedia: http://dbpedia.org/resource/
- PREFIX prop: http://dbpedia.org/ontology/
- SELECT ?name
- WHERE {
-    dbpedia:Django_Unchained prop:director ?name .
- }
+PREFIX dbpedia: http://dbpedia.org/resource/
+PREFIX prop: http://dbpedia.org/ontology/
+SELECT ?name
+WHERE {
+ dbpedia:Django_Unchained prop:director ?name .
+}
 \end{lstlisting}
 risultato:
 
 \begin{lstlisting}[language=customized]
-  http://dbpedia.org/resource/Quentin_Tarantino
+http://dbpedia.org/resource/Quentin_Tarantino
 \end{lstlisting}
 \end{frame}
 
@@ -256,39 +256,39 @@ risultato:
 \begin{column}{0.8\textwidth}
 \begin{tikzpicture}
 [lineDecorate/.style={-,thick},%
-  actor/.style={shape=circle,inner sep=3pt,draw, thick},
-  film/.style={shape=diamond,inner sep=4pt,draw,thick, fill=blue!15}]
+actor/.style={shape=circle,inner sep=3pt,draw, thick},
+film/.style={shape=diamond,inner sep=4pt,draw,thick, fill=blue!15}]
 
 %% nodes or vertices
 \foreach \nodename/\x/\y/\direction/\navigate in {
-  $Django Unchained$/1/3/left/west, $Inglourious Basterds$/3/3/right/east, $Titanic$/1/1/below/south}
+$Django Unchained$/1/3/left/west, $Inglourious Basterds$/3/3/right/east, $Titanic$/1/1/below/south}
 {
-  \node (\nodename) at (\x,\y) [film] {};
-  \node [\direction] at (\nodename.\navigate) {\footnotesize$\nodename$};
+\node (\nodename) at (\x,\y) [film] {};
+\node [\direction] at (\nodename.\navigate) {\footnotesize$\nodename$};
 }
 
 \foreach \nodename/\x/\y/\direction/\navigate in {
-  $Quentin Tarantino$/2/4/above/north, $Leonardo Di caprio$/1/2/left/west, $Christoph Waltz$/3/2/right/east}
+$Quentin Tarantino$/2/4/above/north, $Leonardo Di caprio$/1/2/left/west, $Christoph Waltz$/3/2/right/east}
 {
-  \node (\nodename) at (\x,\y) [actor] {};
-  \node [\direction] at (\nodename.\navigate) {\footnotesize$\nodename$};
+\node (\nodename) at (\x,\y) [actor] {};
+\node [\direction] at (\nodename.\navigate) {\footnotesize$\nodename$};
 }
 
 %% edges or lines
 \path
 \foreach \startnode/\endnode in {$Django Unchained$/$Leonardo Di caprio$, $Django Unchained$/$Christoph Waltz$, $Inglourious Basterds$/$Christoph Waltz$, $Leonardo Di caprio$/$Titanic$}
 {
-  (\startnode) edge[lineDecorate,director edge] node {} (\endnode)
+(\startnode) edge[lineDecorate,director edge] node {} (\endnode)
 }
 
 \foreach \startnode/\endnode in {$Django Unchained$/$Quentin Tarantino$,$Quentin Tarantino$/$Inglourious Basterds$}
 {
-  (\startnode) edge[lineDecorate,bend left,actor edge] node {} (\endnode)
+(\startnode) edge[lineDecorate,bend left,actor edge] node {} (\endnode)
 }
 
 \foreach \startnode/\endnode in {$Quentin Tarantino$/$Django Unchained$, $Inglourious Basterds$/$Quentin Tarantino$}
 {
-  (\startnode) edge[lineDecorate,bend left,director edge] node {} (\endnode)
+(\startnode) edge[lineDecorate,bend left,director edge] node {} (\endnode)
 };
 
 \end{tikzpicture}
@@ -296,20 +296,20 @@ risultato:
 
 \begin{column}{0.35\textwidth}
 \begin{tabular}{l l}
-  \begin{tikzpicture}[film/.style={shape=diamond,inner sep=3pt,draw,thick, fill=blue!15}]
-    \node (a) at (6,3) [film] {};
-    \node [right] at (a.west) {\footnotesize};
-  \end{tikzpicture}
-  & Film \\
+\begin{tikzpicture}[film/.style={shape=diamond,inner sep=3pt,draw,thick, fill=blue!15}]
+ \node (a) at (6,3) [film] {};
+ \node [right] at (a.west) {\footnotesize};
+\end{tikzpicture}
+& Film \\
 
- \begin{tikzpicture}[actor/.style={shape=circle,inner sep=3pt,draw, thick}]
-    \node (a) at (9,3) [actor] {};
-    \node [right] at (a.west) {\footnotesize};
- \end{tikzpicture}
- & Resource \\
+\begin{tikzpicture}[actor/.style={shape=circle,inner sep=3pt,draw, thick}]
+ \node (a) at (9,3) [actor] {};
+ \node [right] at (a.west) {\footnotesize};
+\end{tikzpicture}
+& Resource \\
 
-  \color{red}--- & Edge director \\
- \color{blue}--- & Edge actor \\
+\color{red}--- & Edge director \\
+\color{blue}--- & Edge actor \\
 \end{tabular}
 
 \end{column}
@@ -324,32 +324,32 @@ Tutte le risorse non film sono state epurate ed inglobate all'interno degli arch
 \\~\\
 \begin{tikzpicture}
 [lineDecorate/.style={-,thick},%
-  film/.style={shape=diamond,inner sep=4pt,draw,thick, fill=blue!15}]
+film/.style={shape=diamond,inner sep=4pt,draw,thick, fill=blue!15}]
 
 %% nodes or vertices
 \foreach \nodename/\x/\y/\direction/\navigate in {
-  $Django Unchained$/0/4/left/west, $Inglourious Basterds$/4/4/right/east, $Titanic$/0/1/below/south}
+$Django Unchained$/0/4/left/west, $Inglourious Basterds$/4/4/right/east, $Titanic$/0/1/below/south}
 {
-  \node (\nodename) at (\x,\y) [film] {};
-  \node [\direction] at (\nodename.\navigate) {\small$\nodename$};
+\node (\nodename) at (\x,\y) [film] {};
+\node [\direction] at (\nodename.\navigate) {\small$\nodename$};
 }
-  \node ($actor Di Caprio actor$) at (0,2) {\color{red}\scriptsize{actor Di Caprio actor}};
+\node ($actor Di Caprio actor$) at (0,2) {\color{red}\scriptsize{actor Di Caprio actor}};
 
 %% edges or lines
 \path
 \foreach \startnode/\endnode in {$Django Unchained$/$actor Di Caprio actor$,$actor Di Caprio actor$/$Titanic$}
 {
-  (\startnode) edge[lineDecorate,actor edge] node[] {} (\endnode)
+(\startnode) edge[lineDecorate,actor edge] node[] {} (\endnode)
 }
 
 \foreach \startnode/\endnode in {$Django Unchained$/$Inglourious Basterds$}
 {
-  (\startnode) edge[lineDecorate,bend left,actor edge] node[auto] {\scriptsize{actor Tarantino actor}} (\endnode)
+(\startnode) edge[lineDecorate,bend left,actor edge] node[auto] {\scriptsize{actor Tarantino actor}} (\endnode)
 }
 
 \foreach \startnode/\endnode in {$Inglourious Basterds$/$Django Unchained$}
 {
-  (\startnode) edge[lineDecorate,bend left,director edge] node[auto] {\scriptsize{director Tarantino director}} (\endnode)
+(\startnode) edge[lineDecorate,bend left,director edge] node[auto] {\scriptsize{director Tarantino director}} (\endnode)
 };
 
 \end{tikzpicture}
@@ -583,144 +583,147 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		$$ MacroMRR =\frac{1}{|U|}\sum_{u\in U}{MRR_u} $$
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-	\frametitle{Configurazioni singole - $\mu$ Precision}	
-\begin{tikzpicture}
-\begin{axis}[
-/tikz/font={\scriptsize},
-xmin=5,
-xmax=50,
-ymin=4,
-ymax=12,
-ylabel=$\mu\;precision (\%)$,
-xlabel= $k$,
-minor grid style={gray!30},
-major grid style={black!50},
-/pgfplots/xtick={5,10,20,50},
-/pgfplots/ytick={4,...,14},
-%yticklabel shift=0.5cm,
-%/pgfplots/ytick=data,
-grid=major,
-extra y ticks={4.1,4.2,...,4.9,5.1,5.2,...,5.9,
-	6.1,6.2,...,6.9,7.1,7.2,...,7.9,8.1,8.2,...,8.9,
-	9.1,9.2,...,9.9,10.1,10.2,...,10.9,11.1,11.2,...,11.9,
-	12.1,12.2,...,12.9,13.1,13.2,...,13.9,14.1,14.2,...,14.9},
-mark=none,
-extra y tick style={yticklabels={},grid=minor,tiny,ytick pos=left},
-width=.7\paperwidth,
-grid=both, 
-axis background/.style={fill=white}]
-\addplot[color=gold,thick] coordinates {
-	(5,11.13)
-	(10,9.33)
-	(20,7.66)
-	(50,6.24)	
-};
-\addlegendentry{\scalefont{0.5}{Director}}
 
-\addplot[color=silver,thick] coordinates {
-	(5,10.64)
-	(10,8.74)
-	(20,7.22)
-	(50,5.80)
-};
-\addlegendentry{\scalefont{0.5}{Subject}}
-
-\addplot[color=bronze,thick] coordinates {
-	(5,7.47)
-	(10,6.59)
-	(20,5.84)
-	(50,4.90)
-};
-\addlegendentry{\scalefont{0.5}{Cinematography}}
-
-\addplot[color=red,thick] coordinates {
-	(5,7.15)
-	(10,6.41)
-	(20,5.73)
-	(50,4.73)
-};
-\addlegendentry{\scalefont{0.5}{Starring}}
-
-\addplot[color=green,thick] coordinates {
-	(5,6.56)
-	(10,6.02)
-	(20,5.51)
-	(50,5.38)
-};
-\addlegendentry{\scalefont{0.5}{Writer}}
-
-\addplot[color=orange,thick] coordinates {
-	(5,6.82)
-	(10,6.05)
-	(20,5.47)
-	(50,4.74)
-};
-\addlegendentry{\scalefont{0.5}{Music}}
-
-\addplot[color=teal,thick] coordinates {
-	(5,6.59)
-	(10,5.74)
-	(20,5.29)
-	(50,4.97)
-};
-\addlegendentry{\scalefont{0.5}{Producer}}
-
-\addplot[color=magenta,thick] coordinates {
-	(5,5.81)
-	(10,4.75)
-	(20,4.20)
-	(50,4.06)
-};
-\addlegendentry{\scalefont{0.5}{Studio}}
-
-\addplot[color=blue,thick] coordinates {
-	(5,4.63)
-	(10,5.29)
-	(20,5.03)
-	(50,3.93)
-};
-\addlegendentry{\scalefont{0.5}{Distributor}}
-
-\addplot[color=black,very thick] coordinates {
-	(5,11.35)
-	(10,9.15)
-	(20,7.35)
-	(50,5.69)	
-};
-\addlegendentry{\scalefont{0.5}{\color{red}Baseline}}
-\end{axis}
-\end{tikzpicture}	
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}
-\frametitle{Configurazioni dei pesi}
-
-\begin{center}
-\begin{tabular}{c | ccc}
-        \toprule
-        $property$ & ~~~$A$~~~ & ~~~$B$~~~ & ~~~ $C$~~~ \\
-        \hline
-        editing			& 0.4 & 0.2 & - \\
-        music			& 0.1 & 0.1 & 0.3 \\
-        cinematography 	& 0.2 & 0.1 & - \\
-        director		& 0.8 & 0.7 & 0.8 \\
-        distributor 	& 0.2 & 0.1 & - \\
-        producer		& 0.1 & 0.1 & - \\
-        starring		& 0.7 & 0.6 & 0.5 \\
-        studio			& 0.1 & 0.1 & - \\
-        writer			& 0.4 & 0.3 & - \\
-        subject			& 0.5 & 0.8 & 0.2 \\
-        \bottomrule
-        \end{tabular}
-\end{center}
-\end{frame}
 
 \subsection{Risultati}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+	\frametitle{Configurazioni singole - $\mu$ Precision}	
+	\begin{tikzpicture}
+	\begin{axis}[
+	/tikz/font={\scriptsize},
+	xmin=5,
+	xmax=50,
+	ymin=4,
+	ymax=12,
+	ylabel=$\mu\;precision (\%)$,
+	xlabel= $k$,
+	minor grid style={gray!30},
+	major grid style={black!50},
+	/pgfplots/xtick={5,10,20,50},
+	/pgfplots/ytick={4,...,14},
+	%yticklabel shift=0.5cm,
+	%/pgfplots/ytick=data,
+	grid=major,
+	extra y ticks={4.1,4.2,...,4.9,5.1,5.2,...,5.9,
+		6.1,6.2,...,6.9,7.1,7.2,...,7.9,8.1,8.2,...,8.9,
+		9.1,9.2,...,9.9,10.1,10.2,...,10.9,11.1,11.2,...,11.9,
+		12.1,12.2,...,12.9,13.1,13.2,...,13.9,14.1,14.2,...,14.9},
+		mark=none,
+		extra y tick style={yticklabels={},grid=minor,tiny,ytick pos=left},
+		width=.7\paperwidth,
+		grid=both, 
+		axis background/.style={fill=white}]
+		\addplot[color=gold,thick] coordinates {
+			(5,11.13)
+			(10,9.33)
+			(20,7.66)
+			(50,6.24)	
+		};
+		\addlegendentry{\scalefont{0.5}{Director}}
+		
+		\addplot[color=silver,thick] coordinates {
+			(5,10.64)
+			(10,8.74)
+			(20,7.22)
+			(50,5.80)
+		};
+		\addlegendentry{\scalefont{0.5}{Subject}}
+		
+		\addplot[color=bronze,thick] coordinates {
+			(5,7.47)
+			(10,6.59)
+			(20,5.84)
+			(50,4.90)
+		};
+		\addlegendentry{\scalefont{0.5}{Cinematography}}
+		
+		\addplot[color=red,thick] coordinates {
+			(5,7.15)
+			(10,6.41)
+			(20,5.73)
+			(50,4.73)
+		};
+		\addlegendentry{\scalefont{0.5}{Starring}}
+		
+		\addplot[color=green,thick] coordinates {
+			(5,6.56)
+			(10,6.02)
+			(20,5.51)
+			(50,5.38)
+		};
+		\addlegendentry{\scalefont{0.5}{Writer}}
+		
+		\addplot[color=orange,thick] coordinates {
+			(5,6.82)
+			(10,6.05)
+			(20,5.47)
+			(50,4.74)
+		};
+		\addlegendentry{\scalefont{0.5}{Music}}
+		
+		\addplot[color=teal,thick] coordinates {
+			(5,6.59)
+			(10,5.74)
+			(20,5.29)
+			(50,4.97)
+		};
+		\addlegendentry{\scalefont{0.5}{Producer}}
+		
+		\addplot[color=magenta,thick] coordinates {
+			(5,5.81)
+			(10,4.75)
+			(20,4.20)
+			(50,4.06)
+		};
+		\addlegendentry{\scalefont{0.5}{Studio}}
+		
+		\addplot[color=blue,thick] coordinates {
+			(5,4.63)
+			(10,5.29)
+			(20,5.03)
+			(50,3.93)
+		};
+		\addlegendentry{\scalefont{0.5}{Distributor}}
+		
+		\addplot[color=black,very thick] coordinates {
+			(5,11.35)
+			(10,9.15)
+			(20,7.35)
+			(50,5.69)	
+		};
+		\addlegendentry{\scalefont{0.5}{\color{red}Baseline}}
+		\end{axis}
+		\end{tikzpicture}	
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}
+		\frametitle{Configurazioni dei pesi}
+		
+		\begin{center}
+			\begin{tabular}{c | ccc}
+				\toprule
+				$property$ & ~~~$A$~~~ & ~~~$B$~~~ & ~~~ $C$~~~ \\
+				\hline
+				editing			& 0.4 & 0.2 & - \\
+				music			& 0.1 & 0.1 & 0.3 \\
+				cinematography 	& 0.2 & 0.1 & - \\
+				director		& 0.8 & 0.7 & 0.8 \\
+				distributor 	& 0.2 & 0.1 & - \\
+				producer		& 0.1 & 0.1 & - \\
+				starring		& 0.7 & 0.6 & 0.5 \\
+				studio			& 0.1 & 0.1 & - \\
+				writer			& 0.4 & 0.3 & - \\
+				subject			& 0.5 & 0.8 & 0.2 \\
+				\bottomrule
+			\end{tabular}
+		\end{center}
+	\end{frame}
+	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 	\frametitle{Configurazione A - $\mu$ Precision}	
