@@ -149,7 +149,7 @@ Strumento base proposto da \emph{W3C} per la codifica, lo scambio e il riutilizz
 
 L'RDF Data Model si basa su tre principi chiave:
 \begin{enumerate}
-\item qualunque cosa può essere identificata da un (URI)
+\item qualunque cosa può essere identificata da un URI
 \item utilizzare il linguaggio meno espressivo per definire qualunque cosa
 \item qualunque cosa può dire qualunque cosa su qualunque cosa
 \end{enumerate}
@@ -230,8 +230,7 @@ Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 
 \begin{frame}[fragile]
 \frametitle{Grafo delle Risorse}
-Attraverso query SPARQL sono state estratte tutte le triple che avevano proprietà nota e un film come soggetto
-è stato generato il grafo delle risorse \\~\\
+Attraverso query SPARQL\footnote{\emph{Endpoint} : \url{http://dbpedia.org}} sono state estratte tutte le triple RDF aventi come predicato una delle proprietà definite in precedenza. \\~\\
 \begin{lstlisting}[language=customized]
 PREFIX dbpedia: http://dbpedia.org/resource/
 PREFIX prop: http://dbpedia.org/ontology/
@@ -250,7 +249,8 @@ http://dbpedia.org/resource/Quentin_Tarantino
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
-\frametitle{Grafo delle Risorse}
+\frametitle{Grafo delle Risorse} 
+Esempio di grafo delle risorse partendo dalle triple RDF estratte precedentemente. \\~\\
 \begin{columns}[p]
 \begin{column}{0.8\textwidth}
 \begin{tikzpicture}
@@ -322,7 +322,9 @@ $Quentin Tarantino$/2/4/above/north, $Leonardo Di caprio$/1/2/left/west, $Christ
 Tutte le risorse non film sono state epurate ed inglobate all'interno degli archi.
 \\~\\
 \begin{tikzpicture}
-[lineDecorate/.style={-,thick},%
+[lineDecoratein/.style={<-,thick}, %
+lineDecorateout/.style={->,thick}, %
+lineDecorate/.style={<->,thick},%
 film/.style={shape=diamond,inner sep=4pt,draw,thick, fill=blue!15}]
 
 %% nodes or vertices
@@ -336,9 +338,14 @@ $Django Unchained$/0/4/left/west, $Inglourious Basterds$/4/4/right/east, $Titani
 
 %% edges or lines
 \path
-\foreach \startnode/\endnode in {$Django Unchained$/$actor Di Caprio actor$,$actor Di Caprio actor$/$Titanic$}
+\foreach \startnode/\endnode in {$Django Unchained$/$actor Di Caprio actor$}
 {
-(\startnode) edge[lineDecorate,actor edge] node[] {} (\endnode)
+(\startnode) edge[lineDecoratein,actor edge] node[] {} (\endnode)
+}
+
+\foreach \startnode/\endnode in {$actor Di Caprio actor$/$Titanic$}
+{
+	(\startnode) edge[lineDecorateout,actor edge] node[] {} (\endnode)
 }
 
 \foreach \startnode/\endnode in {$Django Unchained$/$Inglourious Basterds$}
@@ -362,7 +369,7 @@ $Django Unchained$/0/4/left/west, $Inglourious Basterds$/4/4/right/east, $Titani
 
 \begin{frame}
 \frametitle{Distanze}
-Sono state applicate 4 distanze su grafo:
+Sono state applicate 4 tipi di distanze di Passant sul grafo:
 
 \begin{columns}
 
@@ -698,9 +705,9 @@ L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
 		\end{tikzpicture}	
 	\end{frame}
 	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}
+\begin{frame}
 		\frametitle{Configurazioni dei pesi}
 		
 		\begin{center}
