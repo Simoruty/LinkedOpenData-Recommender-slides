@@ -230,7 +230,7 @@ Per la raccomandazione di film, abbiamo estratto le seguenti proprietà
 
 \begin{frame}[fragile]
 \frametitle{Grafo delle Risorse}
-Attraverso query SPARQL\footnote{\emph{Endpoint} : \url{http://dbpedia.org}} sono state estratte tutte le triple RDF aventi come predicato una delle proprietà definite in precedenza. \\~\\
+Attraverso query SPARQL\footnote{\emph{Endpoint} : \url{http://dbpedia.org/sparql}} sono state estratte tutte le triple RDF aventi come predicato una delle proprietà definite in precedenza. \\~\\
 \begin{lstlisting}[language=customized]
 PREFIX dbpedia: http://dbpedia.org/resource/
 PREFIX prop: http://dbpedia.org/ontology/
@@ -250,7 +250,7 @@ http://dbpedia.org/resource/Quentin_Tarantino
 
 \begin{frame}
 \frametitle{Grafo delle Risorse} 
-Esempio di grafo delle risorse partendo dalle triple RDF estratte precedentemente. \\~\\
+Esempio di grafo delle risorse ottenuto partendo dalle triple RDF estratte precedentemente. \\~\\
 \begin{columns}[p]
 \begin{column}{0.8\textwidth}
 \begin{tikzpicture}
@@ -524,7 +524,7 @@ Il dataset preso in considerazione è composto da 518 film e 613 utenti. Ciascun
 		\item[$\diamond$] I due profili utente (pesato e non pesato) utilizzando il Training set
 		\item[$\diamond$] Le liste di raccomandazioni, contenente la totalità dei film, ordinate per importanza, secondo le diverse tipologie di distanza
 	\end{itemize}
-	\item<3-> $\forall k \in (5,10,20,50,100)$ calcolo delle metriche\footnote{\footnotesize{\emph{Precisione $P_k$ ed MRR}}} in base ad ogni combinazione profilo-distanza
+	\item<3-> $\forall k \in (5,10,20,50,100)$ calcolare le metriche\footnote{\emph{Precisione $P_k$ ed MRR}} in base ad ogni combinazione profilo-distanza-Numero di raccomandazione
 \end{enumerate}
 \end{frame}
 
@@ -532,6 +532,7 @@ Il dataset preso in considerazione è composto da 518 film e 613 utenti. Ciascun
 
 \begin{frame}
 	\frametitle{Protocollo Sperimentale}
+	Combinazioni possibili::
 	\begin{columns}[t]
 		\begin{column}{0.5\textwidth}
 				\begin{itemize}
@@ -569,14 +570,38 @@ Il dataset preso in considerazione è composto da 518 film e 613 utenti. Ciascun
 
 \subsection{Metriche}
 \begin{frame}
-\frametitle{Precision}
-L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
-\begin{align*}
-	\mu Precision =\frac{\sum\limits_{u\in U}^{}TP_u}{\sum\limits_{u\in U}^{}TP_u+\sum\limits_{u\in U}^{}FP_u} \\
-	MPrecision =\frac{1}{|U|}\sum\limits_{u\in U}{Precision_u}
-\end{align*}
+	\frametitle{Metriche}
+	Le metriche utilizzate per valutare il sistema di raccomandazione sono: \\~\\
+	\begin{columns}
+		\begin{column}{0.5\textwidth}	
+			\begin{equation*}
+				\qquad 	\textbf{Precision}
+				\begin{cases} 
+					Micro \\ Macro \\ Epurata \\ Non epurata
+				\end{cases}
+			\end{equation*}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{equation*}
+				\qquad \textbf{MRR}
+				\begin{cases} 
+					Micro \\ Macro \\ Epurata \\ Non epurata
+				\end{cases}
+			\end{equation*}
+		\end{column}
+	\end{columns}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\frametitle{Precision}
+	L'abilità nel ritrovare i documenti con maggior rank tra i più rilevanti.
+	\begin{align*}
+		\mu Precision =\frac{\sum\limits_{u\in U}^{}TP_u}{\sum\limits_{u\in U}^{}TP_u+\sum\limits_{u\in U}^{}FP_u} \\
+		MPrecision =\frac{1}{|U|}\sum\limits_{u\in U}{Precision_u}
+	\end{align*}
+\end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
