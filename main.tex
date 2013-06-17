@@ -490,7 +490,13 @@ I profili creati saranno:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Output}
+\begin{frame}
+	\frametitle{Raccomandazione}
+	Data la configurazione ( tipo profilo - Tipo distanza - Numero raccomandazioni)
+	prelevare il tipo di profilo dall'utente.
+	Accedere al mega hashmap in base al tipo di distanza
+	in base ai film votati prelevare il numero k di raccomandazioni sempre dal mega hashmap.
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -532,7 +538,7 @@ Il dataset preso in considerazione è composto da 518 film e 613 utenti. Ciascun
 
 \begin{frame}
 	\frametitle{Protocollo Sperimentale}
-	Combinazioni possibili::
+	Combinazioni possibili:
 	\begin{columns}[t]
 		\begin{column}{0.5\textwidth}
 				\begin{itemize}
@@ -577,14 +583,14 @@ Il dataset preso in considerazione è composto da 518 film e 613 utenti. Ciascun
 			\begin{equation*}
 				\qquad \textbf{Precision}
 				\begin{cases} 
-					Micro 		
-						\begin{cases} 
-							Epurata \\ \mbox{\emph{Non epurata}}
-						\end{cases} \\ 
+					Micro 
+					\begin{cases} 
+						Epurata \\ \mbox{\emph{Non epurata}}
+					\end{cases} 
 					\\~\\ Macro 
-						\begin{cases} 
-							Epurata \\ \mbox{\emph{Non epurata}}
-						\end{cases}
+					\begin{cases} 
+						Epurata \\ \mbox{\emph{Non epurata}}
+					\end{cases}
 				\end{cases}
 			\end{equation*}
 		\end{column}
@@ -592,10 +598,10 @@ Il dataset preso in considerazione è composto da 518 film e 613 utenti. Ciascun
 			\begin{equation*}
 				\qquad \textbf{MRR}
 				\begin{cases} 
-					Micro 		
+					Micro
 					\begin{cases} 
 						Epurata \\ \mbox{\emph{Non epurata}}
-					\end{cases} \\ 
+					\end{cases} 
 					\\~\\ Macro 
 					\begin{cases} 
 						Epurata \\ \mbox{\emph{Non epurata}}
