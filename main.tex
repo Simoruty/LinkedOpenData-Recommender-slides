@@ -260,14 +260,14 @@ film/.style={shape=diamond,inner sep=4pt,draw,thick, fill=blue!15}]
 
 %% nodes or vertices
 \foreach \nodename/\x/\y/\direction/\navigate in {
-$Django Unchained$/1/3/left/west, $Inglourious Basterds$/3/3/right/east, $Titanic$/1/1/below/south}
+$Django Unchained$/1/3/left/west, $Inglourious Basterds$/3/3/right/east, $Titanic$/1/1/left/west, $Avatar$/3/1/right/east}
 {
 \node (\nodename) at (\x,\y) [film] {};
 \node [\direction] at (\nodename.\navigate) {\footnotesize$\nodename$};
 }
 
 \foreach \nodename/\x/\y/\direction/\navigate in {
-$Quentin Tarantino$/2/4/above/north, $Leonardo Di caprio$/1/2/left/west, $Christoph Waltz$/3/2/right/east}
+$Quentin Tarantino$/2/4/above/north, $Leonardo Di caprio$/1/2/left/west, $Christoph Waltz$/3/2/right/east, $James Cameron$/2/0/below/south}
 {
 \node (\nodename) at (\x,\y) [actor] {};
 \node [\direction] at (\nodename.\navigate) {\footnotesize$\nodename$};
@@ -277,17 +277,22 @@ $Quentin Tarantino$/2/4/above/north, $Leonardo Di caprio$/1/2/left/west, $Christ
 \path
 \foreach \startnode/\endnode in {$Django Unchained$/$Leonardo Di caprio$, $Django Unchained$/$Christoph Waltz$, $Inglourious Basterds$/$Christoph Waltz$, $Leonardo Di caprio$/$Titanic$}
 {
-(\startnode) edge[lineDecorate,director edge] node {} (\endnode)
+(\startnode) edge[lineDecorate,actor edge] node {} (\endnode)
 }
 
 \foreach \startnode/\endnode in {$Django Unchained$/$Quentin Tarantino$,$Quentin Tarantino$/$Inglourious Basterds$}
 {
-(\startnode) edge[lineDecorate,bend left,actor edge] node {} (\endnode)
+(\startnode) edge[lineDecorate,bend left,director edge] node {} (\endnode)
 }
 
 \foreach \startnode/\endnode in {$Quentin Tarantino$/$Django Unchained$, $Inglourious Basterds$/$Quentin Tarantino$}
 {
-(\startnode) edge[lineDecorate,bend left,director edge] node {} (\endnode)
+(\startnode) edge[lineDecorate,bend left,actor edge] node {} (\endnode)
+}
+
+\foreach \startnode/\endnode in {$Avatar$/$James Cameron$,$James Cameron$/$Titanic$}
+{
+	(\startnode) edge[lineDecorate,bend left,director edge] node {} (\endnode)
 };
 
 \end{tikzpicture}
@@ -307,8 +312,8 @@ $Quentin Tarantino$/2/4/above/north, $Leonardo Di caprio$/1/2/left/west, $Christ
 \end{tikzpicture}
 & Resource \\
 
-\color{red}--- & Edge director \\
-\color{blue}--- & Edge actor \\
+\color{blue}--- & Edge director \\
+\color{red}--- & Edge actor \\
 \end{tabular}
 
 \end{column}
@@ -329,7 +334,7 @@ film/.style={shape=diamond,inner sep=4pt,draw,thick, fill=blue!15}]
 
 %% nodes or vertices
 \foreach \nodename/\x/\y/\direction/\navigate in {
-$Django Unchained$/0/4/left/west, $Inglourious Basterds$/4/4/right/east, $Titanic$/0/1/below/south}
+$Django Unchained$/0/4/left/west, $Inglourious Basterds$/4/4/right/east, $Titanic$/0/1/below/south, $Avatar$/4/1/right/south}
 {
 \node (\nodename) at (\x,\y) [film] {};
 \node [\direction] at (\nodename.\navigate) {\small$\nodename$};
@@ -341,6 +346,11 @@ $Django Unchained$/0/4/left/west, $Inglourious Basterds$/4/4/right/east, $Titani
 \foreach \startnode/\endnode in {$Django Unchained$/$actor Di Caprio actor$}
 {
 (\startnode) edge[lineDecoratein,actor edge] node[] {} (\endnode)
+}
+
+\foreach \startnode/\endnode in {$Titanic$/$Avatar$}
+{
+	(\startnode) edge[lineDecorate,director edge] node[auto] {\scriptsize{director Cameron director}} (\endnode)
 }
 
 \foreach \startnode/\endnode in {$actor Di Caprio actor$/$Titanic$}
@@ -489,16 +499,15 @@ I profili creati saranno:
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{frame}
-	\frametitle{Raccomandazione}
-	Al fine di velocizzare la fase di raccomandazione è stata creata una struttura dati hashmap atta a contenere tutte le tipologie di distanze con i relativi valori tra i film.
-	Data la configurazione ( tipo profilo - Tipo distanza - Numero raccomandazioni)
-	prelevare il tipo di profilo dall'utente.
-	Accedere al mega hashmap in base al tipo di distanza
-	in base ai film votati prelevare il numero k di raccomandazioni sempre dal mega hashmap.
+	\frametitle{Esempio di raccomandazione}
+	Data la configurazione:
+	\begin{itemize}
+		\item \textbf{Profilo} = Weighted 
+		\item \textbf{K} = 3
+		\item \textbf{Distanza} = Direct Weighted Passant
+	\end{itemize} 
 \end{frame}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Sperimentazione}
