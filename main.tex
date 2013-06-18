@@ -510,26 +510,32 @@ I profili creati saranno:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
 	\frametitle{Esempio di raccomandazione}
-	Data la configurazione:
-		\begin{itemize}
-			\item \textbf{Profilo} = Weighted 
-			\item \textbf{K} = 2
-			\item \textbf{Distanza} = Direct Weighted
-		\end{itemize}
-
-
-	Dato il profilo con votazioni:
-		\begin{itemize}
-			\item Avatar - Vot: 5
-			\item Django Unchained - Vot: 4		
-		\end{itemize} 
-
-
-	Date le proprietà:
-	\begin{itemize}
-		\item actor = 0.5
-		\item director = 0.8
-	\end{itemize}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			Data la configurazione:
+			\begin{itemize}
+				\item \textbf{Profilo} = Weighted 
+				\item \textbf{K} = 2
+				\item \textbf{Distanza} = Direct Weighted
+			\end{itemize}
+			
+			
+			\pause
+			Dato il profilo con votazioni:
+			\begin{itemize}
+				\item Avatar - Vot: 5
+				\item Django Unchained - Vot: 4		
+			\end{itemize} 
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\pause
+			Date le proprietà:
+			\begin{itemize}
+				\item actor = 0.5
+				\item director = 0.8
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
