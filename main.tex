@@ -511,12 +511,40 @@ I profili creati saranno:
 \begin{frame}
 	\frametitle{Esempio di raccomandazione}
 	Data la configurazione:
+		\begin{itemize}
+			\item \textbf{Profilo} = Weighted 
+			\item \textbf{K} = 2
+			\item \textbf{Distanza} = Direct Weighted
+		\end{itemize}
+
+
+	Dato il profilo con votazioni:
+		\begin{itemize}
+			\item Avatar - Vot: 5
+			\item Django Unchained - Vot: 4		
+		\end{itemize} 
+
+
+	Date le proprietà:
 	\begin{itemize}
-		\item \textbf{Profilo} = Weighted 
-		\item \textbf{K} = 3
-		\item \textbf{Distanza} = Direct Weighted Passant
-	\end{itemize} 
+		\item actor = 0.5
+		\item director = 0.8
+	\end{itemize}
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\frametitle{Esempio di raccomandazione}	
+		
+	I \textit{k} film raccomandati saranno:
+	
+	
+	Titanic = (2 * 0.8 * 0.8) + ( 1 * 0.5 * 0.5) = 1.28 + 0.25 = \textbf{1.53} \footnote{(votAvatar * director * director)+ (votDjango * actor * actor)}
+		
+	Inglourious Bastards = (1 * 0.5 * 0.5) + (1 * 0.8 * 0.8) = 0.25 + 0.64 = \textbf{0.89} \footnote{(votDjango * actor * actor)+ (votDjango * director * director)}
+\end{frame}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Sperimentazione}
