@@ -334,7 +334,7 @@ film/.style={shape=diamond,inner sep=4pt,draw,thick, fill=blue!15}]
 
 %% nodes or vertices
 \foreach \nodename/\x/\y/\direction/\navigate in {
-$Django Unchained$/0/4/left/west, $Inglourious Basterds$/4/4/right/east, $Titanic$/0/1/below/south, $Avatar$/4/1/right/south}
+$Django Unchained$/0/4/left/west, $Inglourious Basterds$/4/4/right/east, $Titanic$/0/1/left/west, $Avatar$/4/1/right/east}
 {
 \node (\nodename) at (\x,\y) [film] {};
 \node [\direction] at (\nodename.\navigate) {\small$\nodename$};
