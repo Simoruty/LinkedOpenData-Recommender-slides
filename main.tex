@@ -525,8 +525,8 @@ I profili creati saranno:
 			\pause
 			Dato il profilo con votazioni:
 			\begin{itemize}
-				\item Avatar - Vot: 5
-				\item Django Unchained - Vot: 4		
+				\item Inglorious Basterds - Vot: 5
+				\item Titanic - Vot: 4		
 			\end{itemize} 
 		\end{column}
 		\begin{column}{0.5\textwidth}
@@ -543,14 +543,70 @@ I profili creati saranno:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}
+\frametitle{Grafo dei Film}
+Riprendendo per comodità il grafico d'esempio
+\\~\\
+\begin{tikzpicture}
+[lineDecoratein/.style={<-,thick}, %
+lineDecorateout/.style={->,thick}, %
+lineDecorate/.style={<->,thick},%
+film/.style={shape=diamond,inner sep=4pt,draw,thick, fill=blue!15}]
+
+%% nodes or vertices
+\foreach \nodename/\x/\y/\direction/\navigate in {
+$Django Unchained$/0/4/left/west, $Inglourious Basterds$/4/4/right/east, $Titanic$/0/1/left/west, $Avatar$/4/1/right/east}
+{
+\node (\nodename) at (\x,\y) [film] {};
+\node [\direction] at (\nodename.\navigate) {\small$\nodename$};
+}
+\node ($actor Di Caprio actor$) at (0,2) {\color{red}\scriptsize{actor Di Caprio actor}};
+
+%% edges or lines
+\path
+\foreach \startnode/\endnode in {$Django Unchained$/$actor Di Caprio actor$}
+{
+(\startnode) edge[lineDecoratein,actor edge] node[] {} (\endnode)
+}
+
+\foreach \startnode/\endnode in {$Titanic$/$Avatar$}
+{
+	(\startnode) edge[lineDecorate,director edge] node[auto] {\scriptsize{director Cameron director}} (\endnode)
+}
+
+\foreach \startnode/\endnode in {$actor Di Caprio actor$/$Titanic$}
+{
+	(\startnode) edge[lineDecorateout,actor edge] node[] {} (\endnode)
+}
+
+\foreach \startnode/\endnode in {$Django Unchained$/$Inglourious Basterds$}
+{
+(\startnode) edge[lineDecorate,bend left,actor edge] node[auto] {\scriptsize{actor Tarantino actor}} (\endnode)
+}
+
+\foreach \startnode/\endnode in {$Inglourious Basterds$/$Django Unchained$}
+{
+(\startnode) edge[lineDecorate,bend left,director edge] node[auto] {\scriptsize{director Tarantino director}} (\endnode)
+};
+
+\end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}
 	\frametitle{Esempio di raccomandazione}	
 		
-	I \textit{k} film raccomandati saranno:
+	I \textit{k}$(=2)$ film raccomandati saranno, nell'ordine:
 	
-	
-	Titanic = (2 * 0.8 * 0.8) + ( 1 * 0.5 * 0.5) = 1.28 + 0.25 = \textbf{1.53} \footnote{(votAvatar * director * director)+ (votDjango * actor * actor)}
+	\begin{equation*}
+	Django Unchained \footnote{w(IB)*w(dir)*w(dir) + w(IB)*w(act)*w(act) + w(Tit)*w(act)*w(act)} = (2 * 0.8 * 0.8) + ( 2 * 0.5 * 0.5) + ( 1 * 0.5 * 0.5) = 
+	\end{equation*}
+	\begin{equation*}
+	\qquad = \quad 1.28 + 0.5 + 0.25 \quad = \quad \textbf{2.03} 
+	\end{equation*}
 		
-	Inglourious Basterds = (1 * 0.5 * 0.5) + (1 * 0.8 * 0.8) = 0.25 + 0.64 = \textbf{0.89} \footnote{(votDjango * actor * actor)+ (votDjango * director * director)}
+	\begin{equation*}
+	Avatar \footnote{w(Titanic)*w(director)*w(director)} \quad = \quad (1 * 0.8 * 0.8) \quad = \quad \textbf{0.64}
+	\end{equation*}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
