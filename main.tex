@@ -470,32 +470,41 @@ $$
 	\begin{tabular}{l c}
 		\multicolumn{1}{c}{\textsc{Film}} & \textsc{Votazione} \\
 		\hline
-		Titanic & 5 \\
+		Titanic & 4 \\
 		Django Unchained & 4 \\
 		Bastardi senza gloria & 2 \\
+		Avatar & 5 \\
 		\hline
 	\end{tabular}
 \end{center}	
 \medskip
 I profili creati saranno:
-\begin{center}
-\begin{tabular}{l l}
-	\textbf{Simple} &
-	\begin{tabular}{l}
-		Django Unchained \\		
-		Titanic \\
-	\end{tabular} \\
-	\\
-	
-	\textbf{Weighted} &
-	\begin{tabular}{l r}
-		%		Film & rilevanza \\
-		Titanic & 2 \\
-		Django Unchained & 1 \\
-		Bastardi senza gloria & -1\\
-	\end{tabular}	\\
-\end{tabular}
-\end{center}	
+%\begin{center}
+	\begin{columns}[p]
+		\begin{column}{0.5\textwidth}
+			\begin{tabular}{l l}
+				\textbf{Simple} &
+				\begin{tabular}{l}
+					\small Django Unchained \\		
+					\small Titanic \\
+					\small Avatar \\
+				\end{tabular} \\
+			\end{tabular}
+		\end{column}
+		\begin{column}{0.7\textwidth}
+			\begin{tabular}{l l}
+				\textbf{Weighted} &
+				\begin{tabular}{l r}
+					%		Film & rilevanza \\
+					\small Avatar & \small 2 \\
+					\small Titanic & \small 1 \\
+					\small Django Unchained & \small 1 \\
+					\small Bastardi senza gloria & \small -1\\
+				\end{tabular}	\\
+			\end{tabular}
+		\end{column}
+	\end{columns}
+%\end{center}	
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
